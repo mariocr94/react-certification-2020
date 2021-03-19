@@ -10,7 +10,7 @@ display: flex;
 padding: 0.3em;
 width: 100%;
 background-color: purple;
-flex-direction: column;
+flex-direction: row;
 float: ${props => props.float || "none"};
 `;
 
