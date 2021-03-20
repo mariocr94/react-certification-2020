@@ -2,7 +2,8 @@ import React from  'react';
 
 import styled from 'styled-components';
 import Menu from './Menu';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import RightHand from './RightHand';
 
 
 const HeaderBox = styled.div`
@@ -20,10 +21,7 @@ const Header = () => {
         <HeaderBox> 
             <Menu />
             <SearchBar />
-            {/*
-            <Profile />
-            <DarkMode />
-            */}    
+            <RightHand />
         </HeaderBox>
     );
 };

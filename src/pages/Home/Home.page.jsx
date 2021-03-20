@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import  Header  from '../../components/Header';
+import VideoCards from '../../components/VideoCards';
 
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
@@ -34,7 +35,10 @@ function HomePage() {
             </span>
           </>
         ) : (
-          <Link to="/login">let me in →</Link>
+          <div>
+            <Link to="/login">let me in →</Link>
+            <VideoCards />
+          </div>
         )}
       </section>
     </>

@@ -9,7 +9,8 @@ const MenuBox = styled.div `
     width: 2em;
     background-color: purple;
     :hover{
-        background-color: #c628ee;
+        background-color: grey;
+        cursor: pointer;
     }
 `;
 
