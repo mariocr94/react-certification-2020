@@ -4,10 +4,12 @@ import Profile from './Profile';
 import Toggle from './Toggle';
 
 const Container = styled.div`
-    position: absolute;
-    right: ${props => props.distance || "1em"};
-    flex-direction: row;
+    position:absolute;
+    align-self: center;
     display: flex;
+    float: right;
+    right: 0px;
+    margin: 10px;
 `;
 
 

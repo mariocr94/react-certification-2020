@@ -6,23 +6,23 @@ import {items} from '../../mockFile/mockYoutube.json';
 const Cards = styled.div `
     display: flex;
     flex-wrap: wrap;
-    margin: 0px auto;
-    flex: 1 1 0;
+    margin: 10px auto;
     padding: 20px;
-    justify-content: flex-start;
-    box-sizing: border-box;
 `;
 
-const VideoCards = () => {
+const VideoCards = (props) => {
+    const search = props.filter;
     return (
-        <>
             <Cards>
-                {items.slice(1).map((video) =>
+                {items.slice(1)
+                .filter((filterItem) =>
+                    filterItem.snippet.title.toLocaleLowerCase().includes(search.toLocaleLowerCase().trim())
+                )
+                .map((video) =>
                     <VideoCard key={video.etag} title={video}/>
                 )}
                 
             </Cards>
-        </>
     );
 
 }

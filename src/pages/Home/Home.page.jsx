@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import  Header  from '../../components/Header';
 import VideoCards from '../../components/VideoCards';
@@ -8,6 +8,12 @@ import './Home.styles.css';
 
 
 function HomePage() {
+  const [search, setSearch] = useState("");
+
+  const updateSearch = (childData) => {
+    setSearch(childData);
+  }
+
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
@@ -20,9 +26,9 @@ function HomePage() {
 
   return (
     <>
-      <Header />
+      <Header callBack={updateSearch} />
       <section className="homepage" ref={sectionRef}>
-        <h1>Hello stranger!</h1>
+        <h1>React Bootcamp 2021</h1>
         {authenticated ? (
           <>
             <h2>Good to have you back</h2>
@@ -36,10 +42,10 @@ function HomePage() {
           </>
         ) : (
           <div>
-            <VideoCards />
-            <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <VideoCards filter={search}/>
           </div>
         )}
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </section>
     </>
   );

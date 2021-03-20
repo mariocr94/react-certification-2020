@@ -6,7 +6,7 @@ const Icon = styled.div `
     border-radius: 50%;
     height: 2em;
     width: 2em;
-    margin-top: 10%;
+    margin: 10% 10%;
     background-color: grey;
     cursor:pointer;
 `;

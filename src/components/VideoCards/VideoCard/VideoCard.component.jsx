@@ -10,12 +10,11 @@ const Card = styled.button `
     background-color: white;
     border-radius: 5px;
     border: 0;
-    padding: 0;
+    padding: 10;
     margin: 10px auto;
     border: none;
     cursor: pointer;
     justify-content: center;
-    box-sizing: inherit;
 `;
 
 const Thumbnail = styled.div`

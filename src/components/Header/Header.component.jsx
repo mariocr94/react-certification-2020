@@ -7,22 +7,24 @@ import RightHand from './RightHand';
 
 
 const HeaderBox = styled.div`
-    position: -webkit-sticky;
     position: sticky;
     display: flex;
-    padding: 0.3em;
     width: 100%;
     background-color: purple;
     flex-direction: row;
-    float: ${props => props.float || "none"};
 `;
 
-const Header = () => {
-   
+const Header = (props) => {
+
+    const updateSearch = (childData) => {
+        props.callBack(childData);
+    }
+
+
     return (
         <HeaderBox> 
             <Menu />
-            <SearchBar />
+            <SearchBar callBack = {updateSearch}/>
             <RightHand />
         </HeaderBox>
     );
