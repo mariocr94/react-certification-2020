@@ -38,6 +38,7 @@ function HomePage() {
           <div>
             <Link to="/login">let me in →</Link>
             <VideoCards />
+            <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
           </div>
         )}
       </section>

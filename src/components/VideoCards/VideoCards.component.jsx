@@ -6,17 +6,21 @@ import {items} from '../../mockFile/mockYoutube.json';
 const Cards = styled.div `
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0px auto;
+    flex: 1 1 0;
     padding: 20px;
+    justify-content: flex-start;
+    box-sizing: border-box;
 `;
 
 const VideoCards = () => {
-    console.log(items)
     return (
         <>
             <Cards>
-                <VideoCard />
-                <VideoCard />
+                {items.slice(1).map((video) =>
+                    <VideoCard key={video.etag} title={video}/>
+                )}
+                
             </Cards>
         </>
     );
