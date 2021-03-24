@@ -1,16 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import {Container} from '../styled';
 import Profile from './Profile';
 import Toggle from './Toggle';
 
-const Container = styled.div`
-    position:absolute;
-    align-self: center;
-    display: flex;
-    float: right;
-    right: 0px;
-    margin: 10px;
-`;
 
 
 const Header = () => {

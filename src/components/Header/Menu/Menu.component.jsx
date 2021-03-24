@@ -1,29 +1,7 @@
 import React from  'react';
 
-import styled from 'styled-components';
+import {MenuBox, MiniBox } from '../styled';
 
-const MenuBox = styled.div `
-    align-self: center;
-    border-radius: 50%;
-    height: 2em;
-    width: 2em;
-    margin: 10px;
-    background-color: purple;
-    :hover{
-        background-color: grey;
-        cursor: pointer;
-    }
-`;
-
-const MiniBox = styled.div`
-    background-color: white;
-    align-self: center;
-    margin: 0 auto;
-    margin-top: ${props => props.space};
-    height: 2px;
-    width: 1em;
-    
-`;
 
 const Menu = () => {
     return (

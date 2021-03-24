@@ -1,32 +1,6 @@
 import React, { useState, useRef} from  'react';
 
-import styled from 'styled-components';
-
-const SearchBox = styled.div`
-    background-color:grey;
-    align-self: center;
-    margin-left: 1em;
-    margin-right: 1em;
-    height: 2em;
-    border: none;
-    flex-direction: row;
-    border-radius: 0.5em;
-`;
-
-const Input = styled.input `
-    border: none;
-    margin-top: 0.5em;
-    background-color: grey;
-    font-size: 0.9em;
-    color: white;
-    outline: none;
-    .focus{
-        color: white;
-    }
-    ::placeholder {
-        color: white;
-    }
-`;
+import {SearchBox, Input} from '../styled';
 
 
 const SearchBar = (props) => {

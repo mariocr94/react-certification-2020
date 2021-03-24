@@ -1,18 +1,10 @@
 import React from  'react';
 
-import styled from 'styled-components';
+import {HeaderBox} from './styled';
 import Menu from './Menu';
 import SearchBar from './SearchBar';
 import RightHand from './RightHand';
 
-
-const HeaderBox = styled.div`
-    position: sticky;
-    display: flex;
-    width: 100%;
-    background-color: purple;
-    flex-direction: row;
-`;
 
 const Header = (props) => {
 
