@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import  Header  from '../../components/Header';
+import youtube from '../../apis/youtube';
 import VideoCards from '../../components/VideoCards';
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
@@ -8,9 +9,11 @@ import './Home.styles.css';
 
 function HomePage() {
   const [search, setSearch] = useState("");
+  const [videos, setVideos] = useState([]);
 
   const updateSearch = (childData) => {
     setSearch(childData);
+    handleSubmit(childData);
   }
 
   const history = useHistory();
@@ -21,6 +24,16 @@ function HomePage() {
     event.preventDefault();
     logout();
     history.push('/');
+  }
+
+  const handleSubmit = async (search) => {
+    const response = await youtube.get('/search', {
+      params: {
+        q: search
+      }
+    })
+    console.log(response.data);
+    setVideos(response.data.items);
   }
 
   return (
@@ -40,13 +53,13 @@ function HomePage() {
             </span>
           </>
         ) : (
-            <>
-              {search === "" ? (
-                <h2> What are you looking for?</h2>
-              ) : (
-                <p>{search}</p>
-              )}
-            </>
+          <>
+            {search === "" ? (
+              <h2>Look for something!</h2>
+            ) : (
+              <VideoCards videos={videos} />
+            )}
+          </>
         )}
         <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </section>

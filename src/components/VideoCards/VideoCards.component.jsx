@@ -3,11 +3,8 @@ import {Cards} from './styled';
 import VideoCard from './VideoCard';
 import PropTypes from 'prop-types';
 
-const VideoCards = ({filter, videos}) => {
-
-    const cardsArray = videos?.slice(1).filter((filterItem) =>
-                                filterItem.snippet.title.toLocaleLowerCase().includes(filter?.toLocaleLowerCase().trim())
-                            ).map((video) =>
+const VideoCards = ({videos}) => {
+    const cardsArray = videos?.map((video) =>
                                 <VideoCard 
                                 key={video.etag} 
                                 title={video.snippet.title}
@@ -24,7 +21,6 @@ const VideoCards = ({filter, videos}) => {
 }
 
 VideoCards.propTypes ={
-    filter: PropTypes.string,
     videos: PropTypes.array
 }
 
