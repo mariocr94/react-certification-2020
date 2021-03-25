@@ -4,12 +4,13 @@ import {HeaderBox} from './styled';
 import Menu from './Menu';
 import SearchBar from './SearchBar';
 import RightHand from './RightHand';
+import PropTypes from 'prop-types';
 
 
-const Header = (props) => {
+const Header = ({callBack}) => {
 
     const updateSearch = (childData) => {
-        props.callBack(childData);
+        callBack(childData);
     }
 
 
@@ -21,5 +22,9 @@ const Header = (props) => {
         </HeaderBox>
     );
 };
+
+Header.propTypes = {
+    callBack: PropTypes.func
+}
 
 export default Header;

@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import  Header  from '../../components/Header';
 import VideoCards from '../../components/VideoCards';
-
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 
@@ -26,8 +25,8 @@ function HomePage() {
 
   return (
     <>
-      <Header callBack={updateSearch} />
       <section className="homepage" ref={sectionRef}>
+        <Header callBack={updateSearch}/>
         <h1>React Bootcamp 2021</h1>
         {authenticated ? (
           <>
@@ -41,9 +40,13 @@ function HomePage() {
             </span>
           </>
         ) : (
-          <div>
-            <VideoCards filter={search}/>
-          </div>
+            <>
+              {search === "" ? (
+                <h2> What are you looking for?</h2>
+              ) : (
+                <p>{search}</p>
+              )}
+            </>
         )}
         <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </section>
