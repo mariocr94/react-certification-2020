@@ -7,12 +7,17 @@ import useYoutubeApi from '../../hooks/useYoutubeApi';
 const VideoCards = ({query}) => {
     const [videos] = useYoutubeApi(query)
 
+    const test = (title) => {
+        alert(title);
+    }
+
     const cardsArray = videos?.map((video) =>
                                 <VideoCard 
                                 key={video.etag} 
                                 title={video.snippet.title}
                                 description={video.snippet.description}
                                 thumbnail={video.snippet.thumbnails}
+                                callBack={test}
                                 data-testid="Videocard"/>
                             );
 

@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 
 
 
-const VideoCard = ({title, description, thumbnail}) => {
-
+const VideoCard = ({title, description, thumbnail, callBack}) => {
+    const sendData = () => {
+        callBack(title)
+    }
     return (
         <>
-            <Card data-testid="Videocard">
+            <Card data-testid="Videocard" onClick={sendData}>
                 <Thumbnail thumb={thumbnail.medium.url} />
                 <div>
                     <h3>{title}</h3>
