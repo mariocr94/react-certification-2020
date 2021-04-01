@@ -2,8 +2,11 @@ import React from 'react';
 import {Cards} from './styled';
 import VideoCard from './VideoCard';
 import PropTypes from 'prop-types';
+import useYoutubeApi from '../../hooks/useYoutubeApi';
 
-const VideoCards = ({videos}) => {
+const VideoCards = ({query}) => {
+    const [videos] = useYoutubeApi(query)
+
     const cardsArray = videos?.map((video) =>
                                 <VideoCard 
                                 key={video.etag} 
@@ -21,7 +24,7 @@ const VideoCards = ({videos}) => {
 }
 
 VideoCards.propTypes ={
-    videos: PropTypes.array
+    query: PropTypes.string
 }
 
 export default VideoCards;
