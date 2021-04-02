@@ -3,8 +3,8 @@ import youtube from '../apis/youtube';
 
 const useVideoInfo = (videoID) => { 
     
-const [title, setTitle] = useState("");
-const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   
   const parseData = (video) => {
     const title = video.title;

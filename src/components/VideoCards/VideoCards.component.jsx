@@ -4,8 +4,8 @@ import VideoCard from './VideoCard';
 import PropTypes from 'prop-types';
 import useYoutubeApi from '../../hooks/useYoutubeApi';
 
-const VideoCards = ({query, callBack}) => {
-    const [videos] = useYoutubeApi(query)
+const VideoCards = ({videoId, callBack}) => {
+    const [videos] = useYoutubeApi(videoId)
 
     const sendData = (data) => {
         callBack(data);
@@ -30,7 +30,7 @@ const VideoCards = ({query, callBack}) => {
 }
 
 VideoCards.propTypes ={
-    query: PropTypes.string,
+    videoId: PropTypes.string,
     callBack: PropTypes.func
 }
 

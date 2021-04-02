@@ -10,7 +10,6 @@ const VideoCard = ({id, title, description, thumbnail, callBack}) => {
         callBack(id)
     }
 
-
     return (
         <>
             <Card data-testid="Videocard" onClick={sendData}>
@@ -29,7 +28,8 @@ VideoCard.propTypes ={
     id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
-    thumbnail: PropTypes.object
+    thumbnail: PropTypes.object,
+    callBack: PropTypes.func
 }
 
 export default VideoCard;
