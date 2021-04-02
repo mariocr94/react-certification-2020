@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 
 
 
-const VideoCard = ({title, description, thumbnail, callBack}) => {
+const VideoCard = ({id, title, description, thumbnail, callBack}) => {
     const sendData = () => {
-        callBack(title)
+        callBack(id)
     }
+
+
     return (
         <>
             <Card data-testid="Videocard" onClick={sendData}>
@@ -24,6 +26,7 @@ const VideoCard = ({title, description, thumbnail, callBack}) => {
 
 
 VideoCard.propTypes ={
+    id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     thumbnail: PropTypes.object

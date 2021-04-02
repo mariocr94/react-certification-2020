@@ -4,20 +4,21 @@ import VideoCard from './VideoCard';
 import PropTypes from 'prop-types';
 import useYoutubeApi from '../../hooks/useYoutubeApi';
 
-const VideoCards = ({query}) => {
+const VideoCards = ({query, callBack}) => {
     const [videos] = useYoutubeApi(query)
 
-    const test = (title) => {
-        alert(title);
+    const sendData = (data) => {
+        callBack(data);
     }
 
     const cardsArray = videos?.map((video) =>
                                 <VideoCard 
                                 key={video.etag} 
+                                id={video.id.videoId}
                                 title={video.snippet.title}
                                 description={video.snippet.description}
                                 thumbnail={video.snippet.thumbnails}
-                                callBack={test}
+                                callBack={sendData}
                                 data-testid="Videocard"/>
                             );
 
@@ -29,7 +30,8 @@ const VideoCards = ({query}) => {
 }
 
 VideoCards.propTypes ={
-    query: PropTypes.string
+    query: PropTypes.string,
+    callBack: PropTypes.func
 }
 
 export default VideoCards;

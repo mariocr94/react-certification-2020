@@ -7,16 +7,19 @@ import RightHand from './RightHand';
 import PropTypes from 'prop-types';
 
 
-const Header = ({callBack}) => {
+const Header = ({callBack, callBackReset}) => {
 
     const updateSearch = (childData) => {
         callBack(childData);
     }
 
+    const reset = () => {
+        callBackReset();
+    }
 
     return (
         <HeaderBox> 
-            <Menu />
+            <Menu callBack = {reset}/>
             <SearchBar callBack = {updateSearch}/>
             <RightHand />
         </HeaderBox>

@@ -16,7 +16,7 @@ export const MenuBox = styled.div `
     margin: 10px;
     background-color: purple;
     :hover{
-        background-color: grey;
+        background-color: lightgrey;
         cursor: pointer;
     }
 `;
@@ -32,7 +32,7 @@ export const MiniBox = styled.div`
 `;
 
 export const SearchBox = styled.div`
-    background-color:grey;
+    background-color:lightgrey;
     align-self: center;
     margin-left: 1em;
     margin-right: 1em;
@@ -45,15 +45,11 @@ export const SearchBox = styled.div`
 export const Input = styled.input `
     border: none;
     margin-top: 0.5em;
-    background-color: grey;
+    background-color: lightgrey;
     font-size: 0.9em;
-    color: white;
     outline: none;
     .focus{
-        color: white;
-    }
-    ::placeholder {
-        color: white;
+        color: purple;
     }
 `;
 
@@ -78,7 +74,7 @@ export const CheckBoxLabel = styled.label`
     width: 42px;
     height: 26px;
     border-radius: 15px;
-    background: grey;
+    background: lightgrey;
     cursor: pointer;
     &::after {
         content: "";
@@ -87,7 +83,7 @@ export const CheckBoxLabel = styled.label`
         width: 18px;
         height: 18px;
         margin: 3px;
-        background: #ffffff;
+        background: purple;
         box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
         transition: 0.2s;
     }
@@ -118,7 +114,7 @@ export const Icon = styled.div `
     height: 2em;
     width: 2em;
     margin: 10% 10%;
-    background-color: grey;
+    background-color: lightgrey;
     cursor:pointer;
 `;
 
@@ -129,7 +125,7 @@ export const Head = styled.div`
     height: 0.7em;
     margin: auto;
     top: 10%;
-    background-color: white;
+    background-color: purple;
 `;
 
 export const Body = styled.div`
@@ -138,5 +134,5 @@ export const Body = styled.div`
     height: 0.55em;
     margin: auto;
     margin-top: 20%;
-    background-color: white;
+    background-color: purple;
 `;
