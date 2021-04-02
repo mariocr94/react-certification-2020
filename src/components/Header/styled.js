@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeaderBox = styled.div`
     position: sticky;
     display: flex;
+    width: 100%;
     margin: 0px;
     background-color: purple;
     flex-direction: row;

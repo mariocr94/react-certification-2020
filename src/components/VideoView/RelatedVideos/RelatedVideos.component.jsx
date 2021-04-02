@@ -6,28 +6,25 @@ import {Videos} from '../styled';
 
 
 
-const RelatedVideos = ({videoId, callBack}) => {
+const RelatedVideos = ({videoId}) => {
 
     const [isLoading, videos] = useRelatedVideos(videoId);
 
-    const sendData = (data) => {
-        callBack(data);
-    }
-
-    const cardsArray = videos?.map((video) => 
+    return (
+        <>
+            <Videos>
+                {isLoading ? <p>Loading...</p> : 
+                (
+                    videos?.map((video) => 
                                 <RelatedVideo 
                                 key={video.etag} 
                                 id={video.id.videoId}
                                 title={video.snippet?.title}
                                 description={video.snippet?.description}
-                                thumbnail={video.snippet?.thumbnails}
-                                callBack={sendData}/>
-                            );
-
-    return (
-        <>
-            <Videos>
-                {isLoading ? <p>Loading...</p> : cardsArray}
+                                thumbnail={video.snippet?.thumbnails}/>
+                            )
+                )}
+                
                 
             </Videos>
            

@@ -7,7 +7,8 @@ const useYoutubeApi = (query) => {
   const handleSubmit = async (search) => {
     const response = await youtube.get('/search', {
       params: {
-        q: search
+        q: search,
+        type: 'video' 
       }
     })
     

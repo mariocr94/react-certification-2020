@@ -1,32 +1,38 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Card, RelTitle, RelDesc, Img, Content} from '../../styled';
 import PropTypes from 'prop-types';
+import {useHistory} from 'react-router-dom';
 
 
 
 
-const RelatedVideo = ({id, title, description, thumbnail, callBack}) => {
-    const [verified, setVerified] = useState(true);
+const RelatedVideo = ({id, title, description, thumbnail}) => {
 
-    const sendData = () => {
-        callBack(id);
+    const history = useHistory();
+
+    const goToVideoPage = () => {
+        history.push(`/${id}`);
     }
 
-    if(typeof(title) === 'undefined' || typeof(description) === 'undefined' || typeof(thumbnail) === 'undefined'){
-        setVerified(false)
+    const checkProps = (title, description, thumbnail) => {
+        if(title === undefined || description === undefined || thumbnail === undefined){
+            return false;
+        }
+
+        return true;
     }
 
     return (
         <>
-        {verified ? 
-            <Card data-testid="Videocard" onClick={sendData}>
-                <Img src={thumbnail.medium.url} alt="thumbnail" height="100%" width="20%"/>
-                <Content >
-                    <RelTitle>{title}</RelTitle>
-                    <RelDesc>{description}</RelDesc>
-                </Content>
-            </Card> 
-            : <></>}
+            {checkProps(title, description, thumbnail) ? 
+                <Card data-testid="Videocard" onClick={goToVideoPage}>
+                    <Img src={thumbnail.medium.url} alt="thumbnail" height="100%" width="20%"/>
+                    <Content >
+                        <RelTitle>{title}</RelTitle>
+                        <RelDesc>{description}</RelDesc>
+                    </Content>
+                </Card> 
+                : <> </>}
         </>
     );
 }

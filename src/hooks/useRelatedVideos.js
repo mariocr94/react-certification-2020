@@ -16,7 +16,7 @@ const useRelatedVideos = (query) => {
           part: 'snippet'
         }
       })
-      console.log(response.data.items);
+      
       setVideos(response.data.items);
       setIsLoading(false);
     } catch (error) {

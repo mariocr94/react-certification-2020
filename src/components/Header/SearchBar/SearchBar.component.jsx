@@ -1,12 +1,15 @@
-import React, { useState, useRef} from  'react';
-
+import React, { useState, useRef, useContext } from  'react';
+import AppContext from '../../AppContext';
+import {useHistory} from 'react-router-dom';
 import {SearchBox, Input} from '../styled';
-import PropTypes from 'prop-types';
 
 
-const SearchBar = ({callBack}) => {
+const SearchBar = () => {
     const [search, setSearch] = useState("")
     const searchInput = useRef(null)
+    const history = useHistory();
+
+    const myContext = useContext(AppContext);
 
     const handleFocus = () => {
         searchInput.current.select()
@@ -14,12 +17,9 @@ const SearchBar = ({callBack}) => {
 
     const handleKeyDown = (evt) => {
         if(evt.key === 'Enter') {
-            sendData(evt);
+            myContext.setSearch(evt.target.value);
+            history.push(`/`);
         }
-    }
-
-    const sendData = (evt) => {
-        callBack(evt.target.value);
     }
 
     return (
@@ -37,9 +37,5 @@ const SearchBar = ({callBack}) => {
         </SearchBox>
     );
 };
-
-SearchBar.propTypes = {
-    callBack: PropTypes.func
-}
 
 export default SearchBar;

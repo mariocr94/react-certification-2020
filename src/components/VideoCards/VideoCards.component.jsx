@@ -4,12 +4,9 @@ import VideoCard from './VideoCard';
 import PropTypes from 'prop-types';
 import useYoutubeApi from '../../hooks/useYoutubeApi';
 
-const VideoCards = ({videoId, callBack}) => {
+const VideoCards = ({videoId}) => {
     const [videos] = useYoutubeApi(videoId)
 
-    const sendData = (data) => {
-        callBack(data);
-    }
 
     const cardsArray = videos?.map((video) =>
                                 <VideoCard 
@@ -18,7 +15,6 @@ const VideoCards = ({videoId, callBack}) => {
                                 title={video.snippet.title}
                                 description={video.snippet.description}
                                 thumbnail={video.snippet.thumbnails}
-                                callBack={sendData}
                                 data-testid="Videocard"/>
                             );
 

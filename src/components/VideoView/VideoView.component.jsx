@@ -4,14 +4,12 @@ import {Container} from './styled';
 import Video from './Video';
 import RelatedVideos from './RelatedVideos';
 
-const VideoView = ({videoId, callBack}) => {
-    const sendData = (data) => {
-        callBack(data);
-    }
+const VideoView = ({videoId}) => {
+    
     return (
         <Container >
-            <Video videoId={videoId} />
-            <RelatedVideos videoId={videoId} callBack={sendData}/>
+            <Video videoId={videoId}/>
+            <RelatedVideos videoId={videoId}/>
         </Container>
     )
 }

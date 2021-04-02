@@ -1,38 +1,28 @@
-import React, { useRef, useState } from 'react';
-import  Header  from '../../components/Header';
+import React, { useRef, useState, useContext } from 'react';
+import AppContext from '../../components/AppContext';
 import VideoView from '../../components/VideoView';
 import VideoCards from '../../components/VideoCards';
 import './Home.styles.css';
 
 
 function HomePage() {
-  const [search, setSearch] = useState('');
   const [selectedVideo, setSelectedVideo] = useState('');
-
-  const updateSearch = (childData) => {
-    setSearch(childData);
-    setSelectedVideo("");
-    
-  }
+  const myContext = useContext(AppContext);
 
   const handleSelectedVideo = (childData) => {
     setSelectedVideo(childData);
   }
 
-  const reset = () => {
-    setSelectedVideo("");
-  }
 
   const sectionRef = useRef(null);
 
   return (
       <section className="homepage" ref={sectionRef}>
-        <Header callBack={updateSearch} callBackReset={reset}/>
-          {search === "" && selectedVideo === "" ? (
+          {myContext.searchValue === "" && selectedVideo === "" ? (
             <h2>Look for something!</h2>
           ) : [
               (selectedVideo === "" ? (
-                <VideoCards key="0" videoId={search} callBack={handleSelectedVideo}/>
+                <VideoCards key="0" videoId={myContext.searchValue} callBack={handleSelectedVideo}/>
               ) : (
                 <VideoView key="1" videoId={selectedVideo} callBack={handleSelectedVideo}/>
               ))
