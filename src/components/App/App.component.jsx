@@ -5,6 +5,7 @@ import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import Layout from '../Layout';
+import GlobalStyles from '../../global';
 
 function App() {
   const [search, setSearch] = useState("");
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <AppContext.Provider value={searchSettings}>
+      <GlobalStyles />
       <BrowserRouter>
         <AuthProvider>
           <Layout>
