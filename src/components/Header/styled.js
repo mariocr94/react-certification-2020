@@ -4,9 +4,8 @@ export const HeaderBox = styled.div`
     position: sticky;
     display: flex;
     width: 100%;
-    margin: 0px;
+    padding: 0.2em;
     background-color: purple;
-    flex-direction: row;
 `;
 
 export const MenuBox = styled.div `
@@ -34,33 +33,30 @@ export const MiniBox = styled.div`
 
 export const SearchBox = styled.div`
     background-color:lightgrey;
-    align-self: center;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-right: auto;
+    margin-top: 0.5em;
     height: 2em;
     border: none;
-    flex-direction: row;
+    display: flex;
     border-radius: 0.5em;
 `;
 
 export const Input = styled.input `
     border: none;
-    margin-top: 0.5em;
     background-color: lightgrey;
     font-size: 0.9em;
     outline: none;
+    width: 80%;
     .focus{
         color: purple;
     }
 `;
 
 export const Container = styled.div`
-    position:absolute;
+    padding: 0.3em;
+    margin: 0.2em;
     align-self: center;
     display: flex;
-    float: right;
-    right: 0px;
-    margin: 10px;
 `;
 
 export const CheckBoxWrapper = styled.div`

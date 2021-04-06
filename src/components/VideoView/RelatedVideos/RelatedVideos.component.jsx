@@ -11,24 +11,22 @@ const RelatedVideos = ({videoId}) => {
     const [isLoading, videos] = useRelatedVideos(videoId);
 
     return (
-        <>
-            <Videos>
-                {isLoading ? <p>Loading...</p> : 
-                (
-                    videos?.map((video) => 
-                                <RelatedVideo 
-                                key={video.etag} 
-                                id={video.id.videoId}
-                                title={video.snippet?.title}
-                                description={video.snippet?.description}
-                                thumbnail={video.snippet?.thumbnails}/>
-                            )
-                )}
-                
-                
-            </Videos>
+        <Videos>
+            {isLoading ? <p>Loading...</p> : 
+            (
+                videos?.map((video) => 
+                            <RelatedVideo 
+                            key={video.etag} 
+                            id={video.id.videoId}
+                            title={video.snippet?.title}
+                            description={video.snippet?.description}
+                            thumbnail={video.snippet?.thumbnails}/>
+                        )
+            )}
+            
+            
+        </Videos>
            
-        </>
     );
 }
 
