@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import AppContext from '../AppContext';
+import React from 'react';
+import AppProvider from '../../context/AppProvider';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
@@ -8,15 +8,8 @@ import Layout from '../Layout';
 import GlobalStyles from '../../global';
 
 function App() {
-  const [search, setSearch] = useState("");
-
-  const searchSettings = {
-    searchValue: search,
-    setSearch
-  }
-
   return (
-    <AppContext.Provider value={searchSettings}>
+    <AppProvider >
       <GlobalStyles />
       <BrowserRouter>
         <AuthProvider>
@@ -32,7 +25,7 @@ function App() {
           </Layout>
         </AuthProvider>
       </BrowserRouter>
-    </AppContext.Provider>
+    </AppProvider>
   );
 }
 

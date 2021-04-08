@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useContext } from  'react';
-import AppContext from '../../AppContext';
+import React, { useEffect, useRef} from  'react';
 import {useHistory} from 'react-router-dom';
 import {SearchBox, Input} from '../styled';
+import { useAppContext } from '../../../context/AppProvider';
 
 
 const SearchBar = () => {
     const searchInput = useRef(null)
     const history = useHistory();
 
-    const myContext = useContext(AppContext);
+    const { dispatch } = useAppContext();
 
     const handleFocus = () => {
         searchInput.current.select()
@@ -16,7 +16,7 @@ const SearchBar = () => {
 
     const handleKeyDown = (evt) => {
         if(evt.key === 'Enter') {
-            myContext.setSearch(evt.target.value);
+            dispatch({ type: "SET_SEARCH", payload: evt.target.value });
             history.push(`/`);
         }
     }
