@@ -6,12 +6,17 @@ export const Card = styled.button `
     text-align: inherit;
     height: 300px;
     width: 320px;
-    background-color: white;
     border-radius: 5px;
     padding: 10;
     margin: 10px auto 10px 20px;
     border: none;
     cursor: pointer;
+    color: ${props => props.theme.textColor};
+    background-color: ${props => props.theme.cardColor};
+    box-shadow: 5px 5px ${props => props.theme.primaryColor};
+    :hover{
+        border: 2px solid;
+    }
 `;
 
 export const Thumbnail = styled.div`

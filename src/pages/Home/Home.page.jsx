@@ -18,16 +18,15 @@ function HomePage() {
 
   return (
       <section className="homepage" ref={sectionRef}>
-          {search === "" && selectedVideo === "" ? (
-            <h2>Look for something!</h2>
-          ) : [
-              (selectedVideo === "" ? (
-                <VideoCards key="0" videoId={search} callBack={handleSelectedVideo}/>
-              ) : (
-                <VideoView key="1" videoId={selectedVideo} callBack={handleSelectedVideo}/>
-              ))
-          ]}
-        <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        {search === "" && selectedVideo === "" ? (
+          <h2>Look for something!</h2>
+        ) : [
+            (selectedVideo === "" ? (
+              <VideoCards key="0" videoId={search} callBack={handleSelectedVideo}/>
+            ) : (
+              <VideoView key="1" videoId={selectedVideo} callBack={handleSelectedVideo}/>
+            ))
+        ]}
       </section>
   );
 }

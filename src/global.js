@@ -20,8 +20,9 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    color: ${props => props.theme.textColor};
     text-rendering: optimizeLegibility;
-    background-color: lightgray;
+    background-color: ${props => props.theme.backgroundColor};
     background-size: 400% 400%;
     background-position: var(--bg-position);
     transition: background-position 2s ease;
@@ -38,11 +39,11 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     font-weight: bold;
-    color: purple;
+    color: ${props => props.theme.primaryColor};
   }
 
   a:active {
-    color: blueviolet;
+    color: ${props => props.theme.primaryColor};
   }
 `;
 

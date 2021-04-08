@@ -5,7 +5,7 @@ export const HeaderBox = styled.div`
     display: flex;
     width: 100%;
     padding: 0.2em;
-    background-color: purple;
+    background-color: ${props => props.theme.navColor};
 `;
 
 export const MenuBox = styled.div `
@@ -14,15 +14,11 @@ export const MenuBox = styled.div `
     height: 2em;
     width: 2em;
     margin: 10px;
-    background-color: purple;
-    :hover{
-        background-color: lightgrey;
-        cursor: pointer;
-    }
+    cursor: pointer;
 `;
 
 export const MiniBox = styled.div`
-    background-color: white;
+    background-color: ${props => props.theme.menuColor};
     align-self: center;
     margin: 0 auto;
     margin-top: ${props => props.space};
@@ -32,7 +28,7 @@ export const MiniBox = styled.div`
 `;
 
 export const SearchBox = styled.div`
-    background-color:lightgrey;
+    background-color: ${props => props.theme.foregroundColor};
     margin-right: auto;
     margin-top: 0.5em;
     height: 2em;
@@ -43,8 +39,9 @@ export const SearchBox = styled.div`
 
 export const Input = styled.input `
     border: none;
-    background-color: lightgrey;
+    background-color: ${props => props.theme.foregroundColor};
     font-size: 0.9em;
+    color: ${props => props.theme.textColor};
     outline: none;
     width: 80%;
     .focus{
@@ -71,7 +68,7 @@ export const CheckBoxLabel = styled.label`
     width: 42px;
     height: 26px;
     border-radius: 15px;
-    background: lightgrey;
+    background: ${props => props.theme.foregroundColor};
     cursor: pointer;
     &::after {
         content: "";
@@ -80,7 +77,7 @@ export const CheckBoxLabel = styled.label`
         width: 18px;
         height: 18px;
         margin: 3px;
-        background: purple;
+        background: ${props => props.theme.primaryColor};
         box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
         transition: 0.2s;
     }
@@ -93,7 +90,7 @@ export const CheckBox = styled.input`
     width: 42px;
     height: 26px;
     &:checked + ${CheckBoxLabel} {
-        background: #c90297;
+        background: ${props => props.theme.foregroundColor};
         &::after {
             content: "";
             display: block;
@@ -111,7 +108,7 @@ export const Icon = styled.div `
     height: 2em;
     width: 2em;
     margin: 10% 10%;
-    background-color: lightgrey;
+    background-color: ${props => props.theme.foregroundColor};
     cursor:pointer;
 `;
 
@@ -122,7 +119,7 @@ export const Head = styled.div`
     height: 0.7em;
     margin: auto;
     top: 10%;
-    background-color: purple;
+    background-color: ${props => props.theme.primaryColor};
 `;
 
 export const Body = styled.div`
@@ -131,5 +128,5 @@ export const Body = styled.div`
     height: 0.55em;
     margin: auto;
     margin-top: 20%;
-    background-color: purple;
+    background-color: ${props => props.theme.primaryColor};
 `;

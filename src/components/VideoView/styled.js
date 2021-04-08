@@ -40,13 +40,17 @@ export const Videos = styled.div `
 
 export const Card = styled.button `
     display: flex;
+    border: 1px solid black;
     width: 100%;
     height: 100px;
-    border: 1px solid;
     margin: 10px 0;
     align-items: center;
+    border-radius: 5px;
+    color: ${props => props.theme.textColor};
+    box-shadow: 2px 2px ${props => props.theme.primaryColor};
+    background-color: ${props => props.theme.foregroundColor};
     :hover{
-        border: 2px solid purple;
+        border: 2px solid ${props => props.theme.textColor};
         cursor: pointer;
     }
 `;

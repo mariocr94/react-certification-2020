@@ -1,13 +1,16 @@
 import React, { createContext, useContext, useReducer } from 'react';
+import{ theme } from "./theme";
 
 import reducer from './AppReducer.js';
 
 const initState = {
-    search: ''
+    search: '',
+    currentTheme: theme.light
 };
 
 const AppContext = createContext({
-    search: ''
+    search: '',
+    currentTheme: {}
 });
 
 function useAppContext() {
