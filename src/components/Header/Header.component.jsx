@@ -1,24 +1,14 @@
 import React from  'react';
 
-import styled from 'styled-components';
+import {HeaderBox} from './styled';
 import Menu from './Menu';
 import SearchBar from './SearchBar';
 import RightHand from './RightHand';
+import PropTypes from 'prop-types';
 
-
-const HeaderBox = styled.div`
-    position: -webkit-sticky;
-    position: sticky;
-    display: flex;
-    padding: 0.3em;
-    width: 100%;
-    background-color: purple;
-    flex-direction: row;
-    float: ${props => props.float || "none"};
-`;
 
 const Header = () => {
-   
+
     return (
         <HeaderBox> 
             <Menu />
@@ -27,5 +17,9 @@ const Header = () => {
         </HeaderBox>
     );
 };
+
+Header.propTypes = {
+    callBack: PropTypes.func
+}
 
 export default Header;
