@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import youtube from '../apis/youtube';
 
 const useVideoInfo = (videoID) => { 
@@ -11,9 +11,9 @@ const useVideoInfo = (videoID) => {
     const description = video.description;
 
     return [title, description];
-  }
+  };
 
-  const handleSubmit = async (videoID) => {
+  const handleSubmit = useCallback( async (videoID) => {
     const response = await youtube.get('/videos', {
       params: {
         id: videoID
@@ -23,11 +23,11 @@ const useVideoInfo = (videoID) => {
     const [title, description] = parseData(response.data.items[0].snippet);
     setTitle(title);
     setDescription(description);
-  }
+  }, []);
 
   useEffect(()=>{
     handleSubmit(videoID)
-  })
+  }, [videoID, handleSubmit]);
 
   return [title, description];
   

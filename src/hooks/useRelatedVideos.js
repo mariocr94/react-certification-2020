@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import youtube from '../apis/youtube';
 
 const useRelatedVideos = (query) => {
   const [isLoading, setIsLoading] = useState(false);
   const [videos, setVideos] = useState([]);
 
-  const handleSubmit = async (search) => {
+  const handleSubmit = useCallback (async (search) => {
     setIsLoading(true);
 
     try{
@@ -23,11 +23,11 @@ const useRelatedVideos = (query) => {
       console.log(error);
       setIsLoading(false);
     }    
-  }
+  }, []);
 
   useEffect(()=>{
     handleSubmit(query)
-  }, [query])
+  }, [query, handleSubmit]);
 
   return [isLoading, videos];
 }

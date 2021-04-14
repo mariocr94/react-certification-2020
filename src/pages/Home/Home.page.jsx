@@ -16,7 +16,7 @@ function HomePage() {
         {search === "" ? (
           <h2>Look for something!</h2>
         ) : (           
-          <VideoCards key="0" videoId={search} />
+          <VideoCards videoSearch={search} />
         )}
       </section>
   );

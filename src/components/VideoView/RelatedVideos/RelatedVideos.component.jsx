@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useRelatedVideos from '../../../hooks/useRelatedVideos';
+import {useParams} from 'react-router-dom';
 import RelatedVideo from './RelatedVideo';
 import {Videos} from '../styled';
 
 
 
-const RelatedVideos = ({videoId}) => {
+const RelatedVideos = () => {
+
+    let params = useParams();
+    const videoId = params.videoId;
 
     const [isLoading, videos] = useRelatedVideos(videoId);
 
@@ -28,10 +31,6 @@ const RelatedVideos = ({videoId}) => {
         </Videos>
            
     );
-}
-
-RelatedVideos.propTypes = {
-    videoId: PropTypes.string
 }
 
 export default RelatedVideos;

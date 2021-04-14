@@ -1,21 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Container} from './styled';
 import Video from './Video';
 import RelatedVideos from './RelatedVideos';
 
-const VideoView = ({videoId}) => {
+const VideoView = () => {
     
     return (
         <Container >
-            <Video videoId={videoId}/>
-            <RelatedVideos videoId={videoId}/>
+            <Video />
+            <RelatedVideos />
         </Container>
     )
 }
 
-VideoView.propTypes = {
-    videoId: PropTypes.string
-}
 
 export default VideoView;
