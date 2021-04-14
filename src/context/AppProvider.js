@@ -5,7 +5,7 @@ import reducer from './AppReducer.js';
 
 const initState = {
     search: '',
-    currentTheme: theme.light
+    currentTheme: theme.dark
 };
 
 const AppContext = createContext({

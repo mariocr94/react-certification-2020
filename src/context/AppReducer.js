@@ -16,6 +16,6 @@ export default function reducer(state, action){
             };
         }
         default: 
-        throw new Error("Unknown Action");
+            throw new Error("Unknown Action");
     }
 }

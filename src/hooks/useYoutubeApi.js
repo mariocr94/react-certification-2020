@@ -5,14 +5,19 @@ const useYoutubeApi = (query) => {
   const [videos, setVideos] = useState([]);
 
   const handleSubmit = async (search) => {
-    const response = await youtube.get('/search', {
+    
+    try{
+      const response = await youtube.get('/search', {
       params: {
         q: search,
         type: 'video' 
       }
-    })
+      })
+      setVideos(response.data.items);
+    } catch(e){
+      console.log(e);
+    }
     
-    setVideos(response.data.items);
   }
 
   useEffect(()=>{
