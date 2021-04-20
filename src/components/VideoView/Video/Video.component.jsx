@@ -12,7 +12,7 @@ const Video = () => {
     return (
         <Details >
             <div style={{position:'relative', paddingTop:'56.25%'}}>
-                <iframe src={videoSrc} title='Video player' frameborder="0" allowfullscreen
+                <iframe src={videoSrc} title='Video player' frameBorder="0" allowFullScreen
                 style={{position:'absolute', top:'0', left:'0', width:'100%', height:'100%'}} />
             </div>
             <Text>
