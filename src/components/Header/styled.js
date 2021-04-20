@@ -110,6 +110,7 @@ export const Icon = styled.div `
     margin: 10% 10%;
     background-color: ${props => props.theme.foregroundColor};
     cursor:pointer;
+    overflow: hidden;
 `;
 
 export const Head = styled.div`

@@ -1,16 +1,12 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import{ theme } from "./theme";
-
-import reducer from './AppReducer.js';
-
-const initState = {
-    search: '',
-    currentTheme: theme.dark
-};
+import { useEffect } from 'react';
+import { reducer, initializer } from './AppReducer.js';
 
 const AppContext = createContext({
     search: '',
-    currentTheme: {}
+    currentTheme: {},
+    user: {},
+    isLogged: false
 });
 
 function useAppContext() {
@@ -22,8 +18,13 @@ function useAppContext() {
 }
 
 function AppProvider({ children}){
-    const [state, dispatch] = useReducer(reducer, initState);
-    
+    const [state, dispatch] = useReducer(reducer, {}, initializer);
+
+    useEffect(() => {
+        localStorage.setItem("reactUserInfo", JSON.stringify(state.user));
+        localStorage.setItem("reactIsLogged", JSON.stringify(state.isLogged));
+    }, [state.user, state.isLogged])
+
     return(
         <AppContext.Provider value ={{state, dispatch}}>
             {children}

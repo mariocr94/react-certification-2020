@@ -1,6 +1,22 @@
 import{ theme } from "./theme";
+import initState from "./initState";
 
-export default function reducer(state, action){ 
+export const initializer = () => {
+    const user = JSON.parse(localStorage.getItem("reactUserInfo"));
+    const isLogged = JSON.parse(localStorage.getItem("reactIsLogged"))
+    console.log({
+        ...initState,
+        user: user,
+        isLogged: isLogged
+    });
+    return {
+        ...initState,
+        user: user,
+        isLogged: isLogged
+    };    
+}
+
+export function reducer(state, action){ 
     switch (action.type) {
         case "SET_SEARCH": {
             return { 
@@ -13,6 +29,20 @@ export default function reducer(state, action){
             return { 
                 ...state,
                 currentTheme: theme[newThemeKey] 
+            };
+        }
+        case "LOGIN": {
+            return { 
+                ...state, 
+                user: action.payload,
+                isLogged: true
+            };
+        }
+        case "LOGOUT": {
+            return {   
+                ...state, 
+                user: {},
+                isLogged: false
             };
         }
         default: 
