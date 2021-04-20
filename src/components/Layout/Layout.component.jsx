@@ -7,6 +7,7 @@ import GlobalStyles from '../../global';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import LoginModal from '../LoginModal';
+import LogoutModal from '../LogoutModal';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
 function Layout() {
@@ -28,6 +29,7 @@ function Layout() {
             <VideoPage />
           </Route>
         </Switch>
+        {background && <Route path="/logout" component={LogoutModal} />}
         {background && <Route path="/login" component={LoginModal} />}
       </ThemeProvider>
     </main>

@@ -11,10 +11,14 @@ const Profile = () => {
     return (
         <>  
             {isLogged ? 
-                
+                <Link to={{
+                    pathname: '/logout',
+                    state: { background: location }
+                }}>
                     <Icon > 
                         <img src={user.avatarUrl} alt="avatar IMG" height="100%" width="100%"/>
                     </Icon>
+                </ Link> 
                 : 
                 <Link  to={{
                     pathname: '/login',

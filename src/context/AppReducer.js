@@ -3,12 +3,7 @@ import initState from "./initState";
 
 export const initializer = () => {
     const user = JSON.parse(localStorage.getItem("reactUserInfo"));
-    const isLogged = JSON.parse(localStorage.getItem("reactIsLogged"))
-    console.log({
-        ...initState,
-        user: user,
-        isLogged: isLogged
-    });
+    const isLogged = JSON.parse(localStorage.getItem("reactIsLogged"));
     return {
         ...initState,
         user: user,
