@@ -1,5 +1,4 @@
 import React from  'react';
-import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 
 import {MenuBox, MiniBox } from '../styled';
@@ -21,9 +20,6 @@ const Menu = () => {
     );
 };
 
-Menu.propTypes = {
-    callBack: PropTypes.func
-}
 
 
 export default Menu;

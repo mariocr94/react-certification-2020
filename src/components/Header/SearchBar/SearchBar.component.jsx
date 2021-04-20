@@ -1,15 +1,14 @@
-import React, { useState, useRef, useContext } from  'react';
-import AppContext from '../../AppContext';
+import React, { useEffect, useRef} from  'react';
 import {useHistory} from 'react-router-dom';
 import {SearchBox, Input} from '../styled';
+import { useAppContext } from '../../../context/AppProvider';
 
 
 const SearchBar = () => {
-    const [search, setSearch] = useState("")
     const searchInput = useRef(null)
     const history = useHistory();
 
-    const myContext = useContext(AppContext);
+    const { dispatch } = useAppContext();
 
     const handleFocus = () => {
         searchInput.current.select()
@@ -17,22 +16,25 @@ const SearchBar = () => {
 
     const handleKeyDown = (evt) => {
         if(evt.key === 'Enter') {
-            myContext.setSearch(evt.target.value);
+            dispatch({ type: "SET_SEARCH", payload: evt.target.value });
             history.push(`/`);
         }
     }
+
+    useEffect(() => {
+        handleFocus()
+    },[])
 
     return (
         <SearchBox onClick={handleFocus} data-testid="Searchbox">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Search_Icon.svg" 
             alt="" width="25" height="25" 
-            style={{verticalAlign: 'middle'}} />
+            style={{verticalAlign: 'middle', margin: 'auto 0'}} />
             <Input 
+            autofocus
             ref={searchInput}
             placeholder="Search..." 
-            type="text" 
-            value={search}
-            onChange={(evt) => setSearch(evt.target.value)}
+            type="text"
             onKeyDown={handleKeyDown}/>
         </SearchBox>
     );

@@ -7,16 +7,14 @@ import Toggle from './Toggle';
 
 const Header = () => {
     return (
-        <>
-            <Container>
-                <div>
-                    <Toggle />
-                </div>
-                <div>
-                    <Profile />
-                </div>
-            </Container>
-        </>
+        <Container>
+            <div>
+                <Toggle />
+            </div>
+            <div>
+                <Profile />
+            </div>
+        </Container>
     );
 }
 

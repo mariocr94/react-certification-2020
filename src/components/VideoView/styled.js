@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const Details = styled.div `
-    width: 70%;
     align-items: center;
     line-height: 1.5;
+    @media (min-width: 900px){
+        width: 70%;
+    }
 `;
 
 export const Text = styled.div `
     width: 100%;
-    height: 220px;
+    height: auto;
 `;
 
 export const Desc = styled.p `
@@ -21,26 +23,39 @@ export const Desc = styled.p `
 export const Container = styled.div `
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
+    padding: 1em;
+    gap: 1em;
+    @media (min-width: 900px){
+        display: flex;
+    }
 `;
 
 export const Videos = styled.div `
-    width: 30%;
+    
     height: 100%;
+    @media (min-width: 900px){
+        width: 30%;
+    }
 `;
 
 export const Card = styled.button `
     display: flex;
+    border: 1px solid black;
     width: 100%;
     height: 100px;
-    border: 1px solid;
     margin: 10px 0;
     align-items: center;
+    border-radius: 5px;
+    color: ${props => props.theme.textColor};
+    box-shadow: 2px 2px ${props => props.theme.primaryColor};
+    background-color: ${props => props.theme.foregroundColor};
+    :hover{
+        border: 2px solid ${props => props.theme.textColor};
+        cursor: pointer;
+    }
 `;
 
 export const RelTitle = styled.h4 `
-    margin-top: 5px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
@@ -48,7 +63,6 @@ export const RelTitle = styled.h4 `
 `;
 
 export const RelDesc = styled.p `
-    margin-top: 5px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;  
@@ -56,10 +70,9 @@ export const RelDesc = styled.p `
 `;
 
 export const Img = styled.img `
-    margin-left: 0;
-    margin-top: 0;
 `;
 
 export const Content = styled.div`
     width: 80%;
+    padding: 0 1em;
 `;

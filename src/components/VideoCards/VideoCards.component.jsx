@@ -4,11 +4,11 @@ import VideoCard from './VideoCard';
 import PropTypes from 'prop-types';
 import useYoutubeApi from '../../hooks/useYoutubeApi';
 
-const VideoCards = ({videoId}) => {
-    const [videos] = useYoutubeApi(videoId)
+const VideoCards = ({videoSearch}) => {
+    const [searchVideos] = useYoutubeApi(videoSearch);
 
 
-    const cardsArray = videos?.map((video) =>
+    const cardsArray = searchVideos?.map((video) =>
                                 <VideoCard 
                                 key={video.etag} 
                                 id={video.id.videoId}
@@ -26,8 +26,7 @@ const VideoCards = ({videoId}) => {
 }
 
 VideoCards.propTypes ={
-    videoId: PropTypes.string,
-    callBack: PropTypes.func
+    videoSearch: PropTypes.string.isRequired
 }
 
 export default VideoCards;

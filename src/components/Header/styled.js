@@ -4,9 +4,8 @@ export const HeaderBox = styled.div`
     position: sticky;
     display: flex;
     width: 100%;
-    margin: 0px;
-    background-color: purple;
-    flex-direction: row;
+    padding: 0.2em;
+    background-color: ${props => props.theme.navColor};
 `;
 
 export const MenuBox = styled.div `
@@ -15,15 +14,11 @@ export const MenuBox = styled.div `
     height: 2em;
     width: 2em;
     margin: 10px;
-    background-color: purple;
-    :hover{
-        background-color: lightgrey;
-        cursor: pointer;
-    }
+    cursor: pointer;
 `;
 
 export const MiniBox = styled.div`
-    background-color: white;
+    background-color: ${props => props.theme.menuColor};
     align-self: center;
     margin: 0 auto;
     margin-top: ${props => props.space};
@@ -33,34 +28,32 @@ export const MiniBox = styled.div`
 `;
 
 export const SearchBox = styled.div`
-    background-color:lightgrey;
-    align-self: center;
-    margin-left: 1em;
-    margin-right: 1em;
+    background-color: ${props => props.theme.foregroundColor};
+    margin-right: auto;
+    margin-top: 0.5em;
     height: 2em;
     border: none;
-    flex-direction: row;
+    display: flex;
     border-radius: 0.5em;
 `;
 
 export const Input = styled.input `
     border: none;
-    margin-top: 0.5em;
-    background-color: lightgrey;
+    background-color: ${props => props.theme.foregroundColor};
     font-size: 0.9em;
+    color: ${props => props.theme.textColor};
     outline: none;
+    width: 80%;
     .focus{
         color: purple;
     }
 `;
 
 export const Container = styled.div`
-    position:absolute;
+    padding: 0.3em;
+    margin: 0.2em;
     align-self: center;
     display: flex;
-    float: right;
-    right: 0px;
-    margin: 10px;
 `;
 
 export const CheckBoxWrapper = styled.div`
@@ -75,7 +68,7 @@ export const CheckBoxLabel = styled.label`
     width: 42px;
     height: 26px;
     border-radius: 15px;
-    background: lightgrey;
+    background: ${props => props.theme.foregroundColor};
     cursor: pointer;
     &::after {
         content: "";
@@ -84,7 +77,7 @@ export const CheckBoxLabel = styled.label`
         width: 18px;
         height: 18px;
         margin: 3px;
-        background: purple;
+        background: ${props => props.theme.primaryColor};
         box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
         transition: 0.2s;
     }
@@ -97,7 +90,7 @@ export const CheckBox = styled.input`
     width: 42px;
     height: 26px;
     &:checked + ${CheckBoxLabel} {
-        background: #c90297;
+        background: ${props => props.theme.foregroundColor};
         &::after {
             content: "";
             display: block;
@@ -115,7 +108,7 @@ export const Icon = styled.div `
     height: 2em;
     width: 2em;
     margin: 10% 10%;
-    background-color: lightgrey;
+    background-color: ${props => props.theme.foregroundColor};
     cursor:pointer;
 `;
 
@@ -126,7 +119,7 @@ export const Head = styled.div`
     height: 0.7em;
     margin: auto;
     top: 10%;
-    background-color: purple;
+    background-color: ${props => props.theme.primaryColor};
 `;
 
 export const Body = styled.div`
@@ -135,5 +128,5 @@ export const Body = styled.div`
     height: 0.55em;
     margin: auto;
     margin-top: 20%;
-    background-color: purple;
+    background-color: ${props => props.theme.primaryColor};
 `;

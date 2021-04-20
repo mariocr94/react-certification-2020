@@ -4,12 +4,10 @@ import {Icon, Head, Body} from '../../styled';
 
 const Profile = () => {
     return (
-        <>
-            <Icon>
-                <Head />
-                <Body />
-            </Icon>
-        </>
+        <Icon>
+            <Head />
+            <Body />
+        </Icon>
     );
 }
 

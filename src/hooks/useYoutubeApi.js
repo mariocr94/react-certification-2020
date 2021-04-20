@@ -1,23 +1,28 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import youtube from '../apis/youtube';
 
 const useYoutubeApi = (query) => {
   const [videos, setVideos] = useState([]);
 
-  const handleSubmit = async (search) => {
-    const response = await youtube.get('/search', {
+  const handleSubmit = useCallback(async (query) => {
+    
+    try{
+      const response = await youtube.get('/search', {
       params: {
-        q: search,
+        q: query,
         type: 'video' 
       }
-    })
+      })
+      setVideos(response.data.items);
+    } catch(e){
+      console.log(e);
+    }
     
-    setVideos(response.data.items);
-  }
+  }, [])
 
   useEffect(()=>{
     handleSubmit(query)
-  }, [query])
+  }, [query, handleSubmit])
 
   return [videos];
   
