@@ -31,6 +31,7 @@ const SearchBar = () => {
             alt="" width="25" height="25" 
             style={{verticalAlign: 'middle', margin: 'auto 0'}} />
             <Input 
+            autofocus
             ref={searchInput}
             placeholder="Search..." 
             type="text"

@@ -8,7 +8,7 @@ import {Videos} from '../styled';
 
 const RelatedVideos = () => {
 
-    let params = useParams();
+    const params = useParams();
     const videoId = params.videoId;
 
     const [isLoading, videos] = useRelatedVideos(videoId);

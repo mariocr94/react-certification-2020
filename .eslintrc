@@ -12,6 +12,7 @@
     "react/prop-types": "off",
     "array-callback-return": "off",
     "consistent-return": "off",
+    "endOfLine":"auto",
     "no-console": "off"
   }
 }

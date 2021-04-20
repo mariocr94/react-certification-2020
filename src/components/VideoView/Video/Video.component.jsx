@@ -4,7 +4,7 @@ import useVideoInfo from '../../../hooks/useVideoInfo';
 import {Details, Text, Desc} from '../styled';
 
 const Video = () => {
-    let params = useParams();
+    const params = useParams();
     const videoId = params.videoId;
     const [title, description] = useVideoInfo(videoId);
     const videoSrc = `https://www.youtube.com/embed/${videoId}`;

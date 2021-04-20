@@ -4,12 +4,12 @@ import youtube from '../apis/youtube';
 const useYoutubeApi = (query) => {
   const [videos, setVideos] = useState([]);
 
-  const handleSubmit = useCallback(async (search) => {
+  const handleSubmit = useCallback(async (query) => {
     
     try{
       const response = await youtube.get('/search', {
       params: {
-        q: search,
+        q: query,
         type: 'video' 
       }
       })

@@ -35,7 +35,11 @@ VideoCard.propTypes ={
 VideoCard.defaultProps = {
     title: 'Título Default',
     description: 'Descripción Default', 
-    thumbnail: null,
+    thumbnail: {
+        medium:{
+            url: 'https://www.shutterstock.com/es/image-photo/white-bike-parked-near-yellow-wall-473188582'
+        }
+    },
 }
 
 export default VideoCard;
