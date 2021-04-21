@@ -6,6 +6,7 @@ import { useAppContext } from '../../context/AppProvider';
 
 const LoginModal = () => {
     const history = useHistory();
+    const outRef = useRef(null);
     const userRef = useRef(null);
     const pwRef = useRef(null);
     const { dispatch } = useAppContext();
@@ -51,8 +52,13 @@ const LoginModal = () => {
         }
     }
 
+    const exit = (e) => {
+        if (e.target === outRef.current)
+            goBack();
+    }
+
     return (
-        <Styled.ModalBG>
+        <Styled.ModalBG ref={outRef} onClick={exit}>
             <Styled.ModalContent >
                 <Styled.CloseButton onClick={goBack}>&times;</Styled.CloseButton>
                 <Styled.LoginForm>

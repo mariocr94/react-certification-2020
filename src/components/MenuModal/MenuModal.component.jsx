@@ -1,12 +1,13 @@
-import React, { useEffect, useCallback, useRef } from 'react'
+import React, { useEffect, useCallback, useRef } from 'react';
 import Styled from './styled';
 import { useHistory } from 'react-router-dom';
 import { useAppContext } from '../../context/AppProvider';
 
-const LoginModal = () => {
+const MenuModal = () => {
+    const { state }  = useAppContext();
+    const { isLogged } = state;
     const outRef = useRef(null);
     const history = useHistory();
-    const { dispatch } = useAppContext();
 
     const goBack = useCallback(() => {
         history.goBack();
@@ -27,29 +28,21 @@ const LoginModal = () => {
     };
     }, [escFunction]);
 
-
-    const handleLogout = () => {
-        dispatch({ type: "LOGOUT"});
-        goBack();
-    }
-    
     const exit = (e) => {
         if (e.target === outRef.current)
             goBack();
     }
 
-
     return (
         <Styled.ModalBG ref={outRef} onClick={exit}>
-            <Styled.ModalContent >
-                <Styled.CloseButton onClick={goBack}>&times;</Styled.CloseButton>
+            <Styled.ModalContent>
                 <Styled.LoginForm>
-                    <Styled.Label>Are you sure you want to logout?</Styled.Label>
-                    <Styled.Button onClick={handleLogout}> Logout! </Styled.Button>
+                    <Styled.Section to="/">Home</Styled.Section>
+                    {isLogged && <Styled.Section to="/"> Favourites </Styled.Section>}
                 </Styled.LoginForm>
             </Styled.ModalContent>
         </Styled.ModalBG>
     )
 }
 
-export default LoginModal
+export default MenuModal;
