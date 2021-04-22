@@ -1,4 +1,8 @@
-module.exports = {
-    verbose: true,
+module.exports = async () => {
+    return {
+        verbose: true,
+        moduleNameMapper: {
+            "\\.(css|scss|jsx)$": "<rootDir>/__mocks__/styleMock.js"
+          }
+    };
   };
-  

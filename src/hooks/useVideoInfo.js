@@ -1,44 +1,44 @@
-import {useState, useEffect, useCallback} from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import youtube from '../apis/youtube';
 
-const useVideoInfo = (videoID) => { 
-    
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [thumb, setThumb] = useState("");
-  
-  const parseData = (video) => {
-    const title = video.title;
-    const description = video.description;
-    const thumb = video.thumbnails.medium.url;
+const useVideoInfo = (videoID) => {
+  const [videoTitle, setTitle] = useState('');
+  const [videoDescription, setDescription] = useState('');
+  const [thumb, setThumb] = useState('');
 
-    return [title, description, thumb];
+  const parseData = (video) => {
+    const { title } = video;
+    const { description } = video;
+    const newThumb = video.thumbnails.medium.url;
+
+    return [title, description, newThumb];
   };
 
-  const handleSubmit = useCallback( async (videoID) => {
+  const handleSubmit = useCallback(async (videoId) => {
     const response = await youtube.get('/videos', {
       params: {
-        id: videoID
-      }
-    })
-    if(response.data.items[0]) {
-      const [title, description, thumb] = parseData(response.data.items[0].snippet);
-      setTitle(title);
-      setDescription(description);
-      setThumb(thumb);
-    }else{
+        id: videoId,
+      },
+    });
+    if (response.data.items[0]) {
+      const [respTitle, respDescription, respThumb] = parseData(
+        response.data.items[0].snippet
+      );
+      setTitle(respTitle);
+      setDescription(respDescription);
+      setThumb(respThumb);
+    } else {
       setTitle('');
       setDescription('');
       setThumb({});
     }
   }, []);
 
-  useEffect(()=>{
-    handleSubmit(videoID)
+  useEffect(() => {
+    handleSubmit(videoID);
   }, [videoID, handleSubmit]);
 
-  return [title, description, thumb];
-  
-}
+  return [videoTitle, videoDescription, thumb];
+};
 
 export default useVideoInfo;
