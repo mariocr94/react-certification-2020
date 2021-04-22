@@ -3,9 +3,6 @@ import {Card, RelTitle, RelDesc, Img, Content} from '../../styled';
 import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 
-
-
-
 const RelatedVideo = ({id, title, description, thumbnail}) => {
 
     const history = useHistory();

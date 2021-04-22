@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Details = styled.div `
-    align-items: center;
+    text-align: center;
     line-height: 1.5;
     @media (min-width: 900px){
         width: 70%;
@@ -85,3 +85,20 @@ export const Content = styled.div`
     width: 80%;
     padding: 0 1em;
 `;
+
+
+const Styled = {
+    Content,
+    Img,
+    RelDesc,
+    RelTitle,
+    Card,
+    Videos,
+    Container,
+    Desc,
+    Favourite,
+    Text,
+    Details
+}
+
+export default Styled;

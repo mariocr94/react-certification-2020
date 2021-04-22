@@ -10,6 +10,7 @@ import LoginModal from '../LoginModal';
 import MenuModal from '../MenuModal';
 import LogoutModal from '../LogoutModal';
 import FavouritesView from '../FavouritesView';
+import FavouriteVideoView from '../FavouriteVideoView';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 
 function Layout() {
@@ -30,6 +31,12 @@ function Layout() {
           <Route exact path="/favourites" render={() =>(
             isLogged ? 
             <FavouritesView />
+            :
+            <Redirect to="/" />
+          )}/>
+          <Route path="/favourites/:videoId" render={() =>(
+            isLogged ? 
+            <FavouriteVideoView />
             :
             <Redirect to="/" />
           )}/>

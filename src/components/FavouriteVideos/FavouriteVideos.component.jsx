@@ -1,23 +1,23 @@
 import React from 'react';
-import FavVideo from '../FavVideo';
+import FavSmallVideo from '../FavSmallVideo';
 import { useAppContext } from '../../context/AppProvider';
-import Styled from './styled';
+import Styled from '../VideoView/styled';
 
-const FavouritesView = () => {
+const FavouriteVideos = () => {
     const { state } = useAppContext();
     const { favourites } = state;
 
     const videoArray = favourites?.map((video) => 
-                                <FavVideo 
+                                <FavSmallVideo 
                                 key={video} 
                                 videoId={video}/>
                             );
 
     return (
-        <Styled.Cards>
+        <Styled.Videos>
             {videoArray}
-        </Styled.Cards>
+        </Styled.Videos>
     );
 }
 
-export default FavouritesView;
+export default FavouriteVideos

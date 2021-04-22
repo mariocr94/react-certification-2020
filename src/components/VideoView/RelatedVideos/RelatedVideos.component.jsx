@@ -12,7 +12,7 @@ const RelatedVideos = () => {
     const videoId = params.videoId;
 
     const [isLoading, videos] = useRelatedVideos(videoId);
-
+    
     return (
         <Videos>
             {isLoading ? <p>Loading...</p> : 
