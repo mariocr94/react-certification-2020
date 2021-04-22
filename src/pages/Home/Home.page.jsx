@@ -2,13 +2,15 @@ import React, { useRef} from 'react';
 import VideoCards from '../../components/VideoCards';
 import './Home.styles.css';
 import {useAppContext} from '../../context/AppProvider';
+import useYoutubeApi from '../../hooks/useYoutubeApi';
 
 
 function HomePage() {
   const { state } = useAppContext();
   const { search } = state;
+  const [ searchVideos ] = useYoutubeApi(search);
 
-
+  const searchIds = searchVideos?.map((video) => video.id.videoId);
   const sectionRef = useRef(null);
 
   return (
@@ -16,7 +18,7 @@ function HomePage() {
         {search === "" ? (
           <h2>Look for something!</h2>
         ) : (           
-          <VideoCards videoSearch={search} />
+          <VideoCards videoIds={searchIds} linkTo='/' />
         )}
       </section>
   );

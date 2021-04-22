@@ -21,11 +21,16 @@ const useVideoInfo = (videoID) => {
         id: videoID
       }
     })
-    
-    const [title, description, thumb] = parseData(response.data.items[0].snippet);
-    setTitle(title);
-    setDescription(description);
-    setThumb(thumb);
+    if(response.data.items[0]) {
+      const [title, description, thumb] = parseData(response.data.items[0].snippet);
+      setTitle(title);
+      setDescription(description);
+      setThumb(thumb);
+    }else{
+      setTitle('');
+      setDescription('');
+      setThumb({});
+    }
   }, []);
 
   useEffect(()=>{

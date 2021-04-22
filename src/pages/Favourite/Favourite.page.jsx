@@ -1,11 +1,15 @@
 import React from 'react';
-import FavouriteCards from '../../components/FavouriteCards';
+import VideoCards from '../../components/VideoCards';
 import './Favourite.styles.css';
+import { useAppContext } from '../../context/AppProvider';
 
 const FavouritePage = () => {
+    const { state } = useAppContext();
+    const { favourites } = state;
+
     return (
         <section className="favouritepage">
-            <FavouriteCards />
+            <VideoCards videoIds={favourites} linkTo='/favourites/'/>
         </section>
     );
 

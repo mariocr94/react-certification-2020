@@ -1,8 +1,8 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import useVideoInfo from '../../../hooks/useVideoInfo';
-import Styled from '../styled';
-import { useAppContext } from '../../../context/AppProvider';
+import useVideoInfo from '../../hooks/useVideoInfo';
+import Styled from './styled';
+import { useAppContext } from '../../context/AppProvider';
 
 const Video = () => {
     const params = useParams();

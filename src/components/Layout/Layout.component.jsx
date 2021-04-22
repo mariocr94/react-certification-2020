@@ -7,10 +7,10 @@ import GlobalStyles from '../../global';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import FavouritesPage from '../../pages/Favourite';
+import FavouriteVideoPage from '../../pages/FavouriteVideo';
 import LoginModal from '../LoginModal';
 import MenuModal from '../MenuModal';
 import LogoutModal from '../LogoutModal';
-import FavouriteVideoView from '../FavouriteVideoView';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 
 function Layout() {
@@ -36,7 +36,7 @@ function Layout() {
           )}/>
           <Route path="/favourites/:videoId" render={() =>(
             isLogged ? 
-            <FavouriteVideoView />
+            <FavouriteVideoPage />
             :
             <Redirect to="/" />
           )}/>

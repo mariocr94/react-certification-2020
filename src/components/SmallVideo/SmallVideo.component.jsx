@@ -1,32 +1,32 @@
 import React from 'react';
-import Styled from '../VideoView/styled';
+import Styled from './styled';
 import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 import useVideoInfo from '../../hooks/useVideoInfo';
 
-const FavSmallVideo = ({videoId}) => {
+const SmallVideo = ({videoId}) => {
     const [title, description, thumb] = useVideoInfo(videoId);
-
-
     const history = useHistory();
 
     const goToVideoPage = () => {
         history.push(`/favourites/${videoId}`);
     }
 
+    if (title === '' ) return null;
+
     return (
         <Styled.Card data-testid="Videocard" onClick={goToVideoPage}>
-            <Styled.Img src={thumb} alt="thumbnail" height="100%" width="20%"/>
+            <img src={thumb} alt="thumbnail" height="100%" width="30%"/>
             <Styled.Content >
-                <Styled.RelTitle>{title}</Styled.RelTitle>
-                <Styled.RelDesc>{description}</Styled.RelDesc>
+                <Styled.Title>{title}</Styled.Title>
+                <Styled.Desc>{description}</Styled.Desc>
             </Styled.Content>
         </Styled.Card> 
     );
 }
 
-FavSmallVideo.propTypes ={
+SmallVideo.propTypes ={
     id: PropTypes.string.isRequired,
 }
 
-export default FavSmallVideo;
+export default SmallVideo;
