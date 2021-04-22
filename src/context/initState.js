@@ -6,7 +6,11 @@ const initState = () => {
     return({
         search: '',
         currentTheme: theme.dark,
-        user: {},
+        user: {
+            id: '',
+            name: '',
+            avatarUrl: '',
+        },
         isLogged: false,
         favourites: []
     });
