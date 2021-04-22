@@ -4,8 +4,10 @@ import initState from "./initState";
 export const initializer = () => {
     const user = JSON.parse(localStorage.getItem("reactUserInfo"));
     const isLogged = JSON.parse(localStorage.getItem("reactIsLogged"));
+    const favourites = JSON.parse(localStorage.getItem("reactFavourites"));
     return {
         ...initState,
+        favourites: favourites,
         user: user,
         isLogged: isLogged
     };    
@@ -17,7 +19,7 @@ export function reducer(state, action){
             return { 
                 ...state, 
                 search: action.payload
-            }
+            };
         }
         case "TOGGLE_THEME": {
             const newThemeKey = state.currentTheme.id === "dark" ? "light" : "dark";
@@ -39,6 +41,18 @@ export function reducer(state, action){
                 user: {},
                 isLogged: false
             };
+        }
+        case "ADD_FAVOURITE": {
+            return {   
+                ...state,
+                favourites: [ ...(state.favourites || []), action.payload]
+            };
+        }
+        case "REMOVE_FAVOURITE": {
+            return{
+                ...state,
+                favourites: state.favourites.filter(video => video !== action.payload)
+            };  
         }
         default: 
             throw new Error("Unknown Action");

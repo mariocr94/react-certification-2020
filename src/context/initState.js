@@ -7,7 +7,8 @@ const initState = () => {
         search: '',
         currentTheme: theme.dark,
         user: {},
-        isLogged: false
+        isLogged: false,
+        favourites: []
     });
 };
 

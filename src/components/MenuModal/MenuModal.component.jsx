@@ -38,7 +38,7 @@ const MenuModal = () => {
             <Styled.ModalContent>
                 <Styled.LoginForm>
                     <Styled.Section to="/">Home</Styled.Section>
-                    {isLogged && <Styled.Section to="/"> Favourites </Styled.Section>}
+                    {isLogged && <Styled.Section to="/favourites"> Favourites </Styled.Section>}
                 </Styled.LoginForm>
             </Styled.ModalContent>
         </Styled.ModalBG>

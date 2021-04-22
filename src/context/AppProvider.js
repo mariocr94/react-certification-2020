@@ -5,8 +5,9 @@ import { reducer, initializer } from './AppReducer.js';
 const AppContext = createContext({
     search: '',
     currentTheme: {},
+    favourites: [],
     user: {},
-    isLogged: false
+    isLogged: false,
 });
 
 function useAppContext() {
@@ -24,6 +25,10 @@ function AppProvider({ children}){
         localStorage.setItem("reactUserInfo", JSON.stringify(state.user));
         localStorage.setItem("reactIsLogged", JSON.stringify(state.isLogged));
     }, [state.user, state.isLogged])
+
+    useEffect(() => {
+        localStorage.setItem("reactFavourites", JSON.stringify(state.favourites));
+    }, [state.favourites])
 
     return(
         <AppContext.Provider value ={{state, dispatch}}>

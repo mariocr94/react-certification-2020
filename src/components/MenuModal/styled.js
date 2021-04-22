@@ -20,7 +20,7 @@ const ModalContent = styled.div`
   top: 0;
   height: 100%;
   background-color: ${props => props.theme.foregroundColor};
-  padding: 20px;
+  padding: 0px;
   border: 1px solid #888;
   width: 20%;
 `
@@ -41,10 +41,18 @@ const CloseButton = styled.span`
 const LoginForm = styled.div`
     display: flex;
     flex-direction: column;    
+    width: 100%;
 `
 
 const Section = styled(Link)`
-    margin: 10px 0;
+    height: 2.5em;
+    width: 100%;
+    padding: 0.5em;
+    border-bottom: 1px solid;
+    color: ${props => props.theme.textColor};
+    :hover{
+      background-color: ${props => props.theme.cardColor}
+    }
 `
 
 const Button = styled.button `

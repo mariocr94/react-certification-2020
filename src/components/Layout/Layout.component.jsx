@@ -9,11 +9,12 @@ import VideoPage from '../../pages/Video';
 import LoginModal from '../LoginModal';
 import MenuModal from '../MenuModal';
 import LogoutModal from '../LogoutModal';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import FavouritesView from '../FavouritesView';
+import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 
 function Layout() {
   const { state } = useAppContext();
-  const { currentTheme } = state;
+  const { currentTheme, isLogged } = state;
   const location = useLocation();
   const background = location.state && location.state.background;
   
@@ -26,6 +27,12 @@ function Layout() {
           <Route exact path="/">
             <HomePage />
           </Route>
+          <Route exact path="/favourites" render={() =>(
+            isLogged ? 
+            <FavouritesView />
+            :
+            <Redirect to="/" />
+          )}/>
           <Route path="/:videoId">
             <VideoPage />
           </Route>

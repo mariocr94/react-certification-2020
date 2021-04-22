@@ -5,12 +5,14 @@ const useVideoInfo = (videoID) => {
     
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [thumb, setThumb] = useState("");
   
   const parseData = (video) => {
     const title = video.title;
     const description = video.description;
+    const thumb = video.thumbnails.medium.url;
 
-    return [title, description];
+    return [title, description, thumb];
   };
 
   const handleSubmit = useCallback( async (videoID) => {
@@ -20,16 +22,17 @@ const useVideoInfo = (videoID) => {
       }
     })
     
-    const [title, description] = parseData(response.data.items[0].snippet);
+    const [title, description, thumb] = parseData(response.data.items[0].snippet);
     setTitle(title);
     setDescription(description);
+    setThumb(thumb);
   }, []);
 
   useEffect(()=>{
     handleSubmit(videoID)
   }, [videoID, handleSubmit]);
 
-  return [title, description];
+  return [title, description, thumb];
   
 }
 

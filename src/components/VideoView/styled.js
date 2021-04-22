@@ -13,6 +13,15 @@ export const Text = styled.div `
     height: auto;
 `;
 
+export const Favourite = styled.button`
+    float: left;
+    padding: 10px 20px;
+    background-color: ${props => props.theme.navColor};
+    color: ${props => props.theme.menuColor};
+    font-weight: bold;
+    border-radius: 5px;
+`;
+
 export const Desc = styled.p `
     display: -webkit-box;
     -webkit-line-clamp: 3;
