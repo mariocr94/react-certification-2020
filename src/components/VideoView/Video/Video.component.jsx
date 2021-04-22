@@ -21,6 +21,8 @@ const Video = () => {
     }
 
     const favButton = () => {
+        console.log(favourites);
+        if (!favourites) return
         if(favourites.includes(videoId))
             return <Favourite onClick={removeFromFavourites}>remove from favourites</Favourite>
         

@@ -4,7 +4,11 @@ import initState from "./initState";
 export const initializer = () => {
     const user = JSON.parse(localStorage.getItem("reactUserInfo"));
     const isLogged = JSON.parse(localStorage.getItem("reactIsLogged"));
-    const favourites = JSON.parse(localStorage.getItem("reactFavourites"));
+    let favourites = JSON.parse(localStorage.getItem("reactFavourites"));
+
+    if (!favourites || favourites?.length === 0)  
+        favourites = ['sOS9aOIXPEk'];
+    
     return {
         ...initState,
         favourites: favourites,
