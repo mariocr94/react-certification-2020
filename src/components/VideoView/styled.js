@@ -9,12 +9,16 @@ export const Details = styled.div `
 `;
 
 export const Text = styled.div `
-    width: 100%;
+    width: auto;
     height: auto;
+    margin: 10px;
+    padding: 5px;
+    border-top: 1px solid ${props => props.theme.textColor};
 `;
 
-export const Favourite = styled.button`
-    float: left;
+export const Button = styled.button`
+    float: right;
+    margin-top: 15px;
     padding: 10px 20px;
     background-color: ${props => props.theme.navColor};
     color: ${props => props.theme.menuColor};
@@ -40,7 +44,8 @@ export const Container = styled.div `
 `;
 
 export const Videos = styled.div `
-    
+    display: flex;
+    flex-direction: column;
     height: 100%;
     @media (min-width: 900px){
         width: 30%;
@@ -50,9 +55,9 @@ export const Videos = styled.div `
 export const Card = styled.button `
     display: flex;
     border: 1px solid black;
-    width: 100%;
+    width: auto;
     height: 100px;
-    margin: 10px 0;
+    margin: 10px;
     align-items: center;
     border-radius: 5px;
     color: ${props => props.theme.textColor};
@@ -96,7 +101,7 @@ const Styled = {
     Videos,
     Container,
     Desc,
-    Favourite,
+    Button,
     Text,
     Details
 }

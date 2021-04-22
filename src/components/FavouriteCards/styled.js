@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Cards = styled.div`
+const CardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: 10px auto;
@@ -8,7 +8,7 @@ const Cards = styled.div`
 `
 
 const Styled = {
-    Cards
+    CardsContainer
 }
 
 export default Styled

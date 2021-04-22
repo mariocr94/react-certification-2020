@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Card = styled.button `
     position: relative;
     text-align: inherit;
@@ -11,6 +10,7 @@ export const Card = styled.button `
     margin: 10px auto 10px 20px;
     border: none;
     cursor: pointer;
+    overflow: hidden;
     color: ${props => props.theme.textColor};
     background-color: ${props => props.theme.cardColor};
     box-shadow: 5px 5px ${props => props.theme.primaryColor};

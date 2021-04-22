@@ -1,23 +1,25 @@
 import React from 'react';
-import FavVideo from '../FavVideo';
+import VideoCard from '../VideoCard';
 import { useAppContext } from '../../context/AppProvider';
 import Styled from './styled';
+import { Link } from 'react-router-dom';
 
-const FavouritesView = () => {
+const FavouriteCards = () => {
     const { state } = useAppContext();
     const { favourites } = state;
 
     const videoArray = favourites?.map((video) => 
-                                <FavVideo 
-                                key={video} 
+                            <Link key={video} to={`/favourites/${video}`}>
+                                <VideoCard 
                                 videoId={video}/>
+                            </Link>
                             );
 
     return (
-        <Styled.Cards>
+        <Styled.CardsContainer>
             {videoArray}
-        </Styled.Cards>
+        </Styled.CardsContainer>
     );
 }
 
-export default FavouritesView;
+export default FavouriteCards;

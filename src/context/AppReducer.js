@@ -7,7 +7,7 @@ export const initializer = () => {
     let favourites = JSON.parse(localStorage.getItem("reactFavourites"));
 
     if (!favourites || favourites?.length === 0)  
-        favourites = ['sOS9aOIXPEk'];
+        favourites = [];
     
     return {
         ...initState,

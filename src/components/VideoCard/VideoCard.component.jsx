@@ -1,31 +1,25 @@
-import React from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import Styled from './styled';
 import useVideoInfo from '../../hooks/useVideoInfo';
-import {useHistory} from 'react-router-dom';
 
-const FavVideo = ({videoId}) => {
+const VideoCard = ({videoId}) => {
     const [title, description, thumb] = useVideoInfo(videoId);
-    const history = useHistory();
-
-    const goToFavVideo = () => {
-        history.push(`/favourites/${videoId}`);
-    }
 
     return ( 
-        <Styled.Card data-testid="Videocard" onClick={goToFavVideo}>
+        <Styled.Card data-testid="Videocard" >
             <Styled.Thumbnail thumb={thumb} />
-            <div>
+            <Styled.Text>
                 <h3>{title}</h3>
                 <p>{description}</p>
-            </div>
+            </Styled.Text>
         </Styled.Card>
     );
 }
 
-FavVideo.propTypes = {
+VideoCard.propTypes = {
     videoId: PropTypes.string.isRequired
 }
 
-export default FavVideo;
+export default VideoCard;
 

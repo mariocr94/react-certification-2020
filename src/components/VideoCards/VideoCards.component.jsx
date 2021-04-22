@@ -1,21 +1,19 @@
 import React from 'react';
 import {Cards} from './styled';
-import VideoCard from './VideoCard';
+import VideoCard from '../VideoCard';
 import PropTypes from 'prop-types';
 import useYoutubeApi from '../../hooks/useYoutubeApi';
+import { Link } from 'react-router-dom';
 
 const VideoCards = ({videoSearch}) => {
     const [searchVideos] = useYoutubeApi(videoSearch);
 
-
     const cardsArray = searchVideos?.map((video) =>
-                                <VideoCard 
-                                key={video.etag} 
-                                id={video.id.videoId}
-                                title={video.snippet.title}
-                                description={video.snippet.description}
-                                thumbnail={video.snippet.thumbnails}
-                                data-testid="Videocard"/>
+                                <Link key={video.etag} to={`/${video.id.videoId}`}>
+                                    <VideoCard 
+                                    videoId={video.id.videoId}
+                                    data-testid="Videocard"/>
+                                </Link>
                             );
 
     return (

@@ -23,9 +23,9 @@ const FavouriteVideoView = () => {
 
     const favButton = () => {
         if(favourites.includes(videoId))
-            return <Styled.Favourite onClick={removeFromFavourites}>remove from favourites</Styled.Favourite>
+            return <Styled.Button onClick={removeFromFavourites}>remove from favourites</Styled.Button>
         
-        return <Styled.Favourite onClick={addToFavourites}>add to favourites</Styled.Favourite>
+        return <Styled.Button onClick={addToFavourites}>add to favourites</Styled.Button>
     }
 
     return (

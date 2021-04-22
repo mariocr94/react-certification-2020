@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import useVideoInfo from '../../../hooks/useVideoInfo';
-import {Details, Text, Desc, Favourite} from '../styled';
+import Styled from '../styled';
 import { useAppContext } from '../../../context/AppProvider';
 
 const Video = () => {
@@ -21,26 +21,25 @@ const Video = () => {
     }
 
     const favButton = () => {
-        console.log(favourites);
         if (!favourites) return
         if(favourites.includes(videoId))
-            return <Favourite onClick={removeFromFavourites}>remove from favourites</Favourite>
+            return <Styled.Button onClick={removeFromFavourites}>remove from favourites</Styled.Button>
         
-        return <Favourite onClick={addToFavourites}>add to favourites</Favourite>
+        return <Styled.Button onClick={addToFavourites}>add to favourites</Styled.Button>
     }
 
     return (
-        <Details >
+        <Styled.Details >
             <div style={{position:'relative', paddingTop:'56.25%'}}>
                 <iframe src={videoSrc} title='Video player' frameBorder="0" allowFullScreen
                 style={{position:'absolute', top:'0', left:'0', width:'100%', height:'100%'}} />
             </div>
-            <Text>   
+            <Styled.Text>   
                 {isLogged && favButton()}
                 <h3>{title}</h3>
-                <Desc>{description}</Desc>
-            </Text>
-        </Details>
+                <Styled.Desc>{description}</Styled.Desc>
+            </Styled.Text>
+        </Styled.Details>
     )
 }
 

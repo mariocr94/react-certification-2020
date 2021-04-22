@@ -8,7 +8,7 @@ const initState = () => {
         currentTheme: theme.dark,
         user: {},
         isLogged: false,
-        favourites: ['sOS9aOIXPEk']
+        favourites: []
     });
 };
 

@@ -6,10 +6,10 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../global';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
+import FavouritesPage from '../../pages/Favourite';
 import LoginModal from '../LoginModal';
 import MenuModal from '../MenuModal';
 import LogoutModal from '../LogoutModal';
-import FavouritesView from '../FavouritesView';
 import FavouriteVideoView from '../FavouriteVideoView';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ function Layout() {
           </Route>
           <Route exact path="/favourites" render={() =>(
             isLogged ? 
-            <FavouritesView />
+            <FavouritesPage />
             :
             <Redirect to="/" />
           )}/>
