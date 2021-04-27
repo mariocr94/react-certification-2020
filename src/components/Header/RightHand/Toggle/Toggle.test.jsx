@@ -17,6 +17,7 @@ describe('Toggle', () => {
   it('should trigger theme toggle', () => {
     const history = createMemoryHistory();
     history.push('/');
+    // Used AppProvider and Layout for the theme context, Router for location in Layout
     render(
       <AppProvider>
         <Router history={history}>

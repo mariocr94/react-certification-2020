@@ -7,7 +7,7 @@ function App() {
   return (
     <AppProvider>
       <HashRouter>
-        <Layout />
+        <Layout data-testid="AppLayout" />
       </HashRouter>
     </AppProvider>
   );
