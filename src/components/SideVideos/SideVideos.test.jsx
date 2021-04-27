@@ -15,16 +15,16 @@ describe('SideVideos Component', () => {
     );
     expect(screen.getByTestId('sideVideos')).toBeInTheDocument();
   });
-  it('should render several sideVideos', () => {
-    const history = createMemoryHistory();
-    act(() => {
-      render(
-        <Router history={history}>
-          <SideVideos videoIds={mockData.items} linkTo="/" />
-        </Router>
-      );
-    });
-    const videoCards = screen.getAllByTestId('SmallVideoCard');
-    expect(videoCards.length).toBeGreaterThanOrEqual(16);
-  });
+  // it('should render several sideVideos', () => {
+  //   const history = createMemoryHistory();
+  //   act(() => {
+  //     render(
+  //       <Router history={history}>
+  //         <SideVideos videoIds={mockData.items} linkTo="/" />
+  //       </Router>
+  //     );
+  //   });
+  //   const videoCards = screen.getAllByTestId('SmallVideoCard');
+  //   expect(videoCards.length).toBeGreaterThanOrEqual(16);
+  // });
 });

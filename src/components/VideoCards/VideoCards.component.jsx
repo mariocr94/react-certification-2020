@@ -11,7 +11,9 @@ const VideoCards = ({ videoIds, linkTo }) => {
     </Link>
   ));
 
-  return <Styled.CardsContainer>{videoArray}</Styled.CardsContainer>;
+  return (
+    <Styled.CardsContainer data-testid="Videocards">{videoArray}</Styled.CardsContainer>
+  );
 };
 
 VideoCards.prototype = {

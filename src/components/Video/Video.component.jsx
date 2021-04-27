@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import useVideoInfo from '../../hooks/useVideoInfo';
 import Styled from './styled';
-import { useAppContext } from '../../context/AppProvider';
+import { AppContext } from '../../context/AppProvider';
 
 const Video = () => {
   const params = useParams();
   const { videoId } = params;
   const [title, description] = useVideoInfo(videoId);
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
-  const { state, dispatch } = useAppContext();
+  const { state, dispatch } = useContext(AppContext);
   const { isLogged, favourites } = state;
 
   const addToFavourites = () => {
@@ -21,19 +21,21 @@ const Video = () => {
   };
 
   const favButton = () => {
-    if (!favourites) return;
     if (favourites.includes(videoId))
       return (
-        <Styled.Button onClick={removeFromFavourites}>
+        <Styled.Button onClick={removeFromFavourites} data-testid="remFavButton">
           remove from favourites
         </Styled.Button>
       );
 
-    return <Styled.Button onClick={addToFavourites}>add to favourites</Styled.Button>;
+    return (
+      <Styled.Button onClick={addToFavourites} data-testid="FavButton">
+        add to favourites
+      </Styled.Button>
+    );
   };
-
   return (
-    <Styled.Details>
+    <Styled.Details data-testid="VideoInfo">
       <div style={{ position: 'relative', paddingTop: '56.25%' }}>
         <iframe
           src={videoSrc}
