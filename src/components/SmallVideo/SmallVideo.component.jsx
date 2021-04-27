@@ -9,7 +9,7 @@ const SmallVideo = ({ videoId }) => {
   if (title === '') return null;
 
   return (
-    <Styled.Card data-testid="Videocard">
+    <Styled.Card data-testid="SmallVideocard">
       <img src={thumb} alt="thumbnail" height="100%" width="30%" />
       <Styled.Content>
         <Styled.Title>{title}</Styled.Title>

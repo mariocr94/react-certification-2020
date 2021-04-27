@@ -14,7 +14,7 @@ const SideVideos = ({ videoIds, linkTo }) => {
     );
   });
 
-  return <Styled.Videos>{videoArray}</Styled.Videos>;
+  return <Styled.Videos data-testid="sideVideos">{videoArray}</Styled.Videos>;
 };
 
 SideVideos.prototype = {
