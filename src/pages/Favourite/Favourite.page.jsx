@@ -9,7 +9,11 @@ const FavouritePage = () => {
 
   return (
     <section className="favouritepage">
-      <VideoCards videoIds={favourites} linkTo="/favourites/" />
+      {favourites.length > 0 ? (
+        <VideoCards videoIds={favourites} linkTo="/favourites/" />
+      ) : (
+        <h1>There are no favourite videos!</h1>
+      )}
     </section>
   );
 };

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 import Header from '../Header';
 import './Layout.styles.css';
-import { useAppContext } from '../../context/AppProvider';
+import { AppContext } from '../../context/AppProvider';
 import GlobalStyles from '../../global';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
@@ -14,7 +14,7 @@ import MenuModal from '../MenuModal';
 import LogoutModal from '../LogoutModal';
 
 function Layout() {
-  const { state } = useAppContext();
+  const { state } = useContext(AppContext);
   const { currentTheme, isLogged } = state;
   const location = useLocation();
   const background = location.state && location.state.background;
