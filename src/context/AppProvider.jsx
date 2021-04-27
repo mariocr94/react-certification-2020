@@ -35,6 +35,6 @@ function AppProvider({ children }) {
   );
 }
 
-export { useAppContext };
+export { useAppContext, AppContext };
 
 export default AppProvider;

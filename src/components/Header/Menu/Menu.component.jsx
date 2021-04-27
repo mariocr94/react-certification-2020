@@ -12,7 +12,7 @@ const Menu = () => {
         state: { background: location },
       }}
     >
-      <MenuBox>
+      <MenuBox data-testid="Menu">
         <MiniBox space="15%" />
         <MiniBox space="25%" />
         <MiniBox space="25%" />

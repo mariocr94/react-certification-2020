@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
 import { SearchBox, Input } from '../styled';
 import { useAppContext } from '../../../context/AppProvider';
 
 const SearchBar = () => {
   const searchInput = useRef(null);
-  const history = useHistory();
 
   const { dispatch } = useAppContext();
 
@@ -16,7 +14,6 @@ const SearchBar = () => {
   const handleKeyDown = (evt) => {
     if (evt.key === 'Enter') {
       dispatch({ type: 'SET_SEARCH', payload: evt.target.value });
-      history.push(`/`);
     }
   };
 
@@ -38,6 +35,7 @@ const SearchBar = () => {
         placeholder="Search..."
         type="text"
         onKeyDown={handleKeyDown}
+        data-testid="Inputbox"
       />
     </SearchBox>
   );

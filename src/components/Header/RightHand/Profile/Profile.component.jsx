@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Icon, Head, Body } from '../../styled';
-import { useAppContext } from '../../../../context/AppProvider';
+import { AppContext } from '../../../../context/AppProvider';
 
 const Profile = () => {
-  const { state } = useAppContext();
+  const { state } = useContext(AppContext);
   const { isLogged, user } = state;
   const location = useLocation();
 
@@ -17,7 +17,7 @@ const Profile = () => {
             state: { background: location },
           }}
         >
-          <Icon>
+          <Icon data-testid="LoggedProfile">
             <img src={user.avatarUrl} alt="avatar IMG" height="100%" width="100%" />
           </Icon>
         </Link>
@@ -28,7 +28,7 @@ const Profile = () => {
             state: { background: location },
           }}
         >
-          <Icon>
+          <Icon data-testid="Profile">
             <Head />
             <Body />
           </Icon>

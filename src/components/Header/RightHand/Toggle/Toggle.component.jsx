@@ -10,8 +10,13 @@ const Toggle = () => {
   };
   return (
     <CheckBoxWrapper>
-      <CheckBox id="checkbox" type="checkbox" onClick={toggleTheme} />
-      <CheckBoxLabel htmlFor="checkbox" />
+      <CheckBox
+        id="checkbox"
+        type="checkbox"
+        data-testid="Toggle"
+        onClick={toggleTheme}
+      />
+      <CheckBoxLabel htmlFor="checkbox" data-testid="toggleLabel" />
     </CheckBoxWrapper>
   );
 };
