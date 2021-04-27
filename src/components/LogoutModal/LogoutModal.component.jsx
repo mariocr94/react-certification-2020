@@ -45,7 +45,9 @@ const LoginModal = () => {
         <Styled.CloseButton onClick={goBack}>&times;</Styled.CloseButton>
         <Styled.LoginForm>
           <Styled.Label>Are you sure you want to logout?</Styled.Label>
-          <Styled.Button onClick={handleLogout}> Logout! </Styled.Button>
+          <Styled.Button onClick={handleLogout} data-testid="logoutButton">
+            Logout!
+          </Styled.Button>
         </Styled.LoginForm>
       </Styled.ModalContent>
     </Styled.ModalBG>

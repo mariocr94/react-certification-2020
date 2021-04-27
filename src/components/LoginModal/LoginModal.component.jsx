@@ -1,15 +1,15 @@
-import React, { useEffect, useCallback, useRef } from 'react';
+import React, { useEffect, useCallback, useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Styled from './styled';
 import loginApi from '../../apis/login.api';
-import { useAppContext } from '../../context/AppProvider';
+import { AppContext } from '../../context/AppProvider';
 
 const LoginModal = () => {
   const history = useHistory();
   const outRef = useRef(null);
   const userRef = useRef(null);
   const pwRef = useRef(null);
-  const { dispatch } = useAppContext();
+  const { dispatch } = useContext(AppContext);
 
   const goBack = useCallback(() => {
     history.goBack();
@@ -67,17 +67,26 @@ const LoginModal = () => {
         <Styled.CloseButton onClick={goBack}>&times;</Styled.CloseButton>
         <Styled.LoginForm>
           <Styled.Label>Username</Styled.Label>
-          <Styled.Input ref={userRef} type="text" placeholder="Username" required />
+          <Styled.Input
+            ref={userRef}
+            type="text"
+            placeholder="Username"
+            data-testid="username"
+            required
+          />
 
           <Styled.Label>Password</Styled.Label>
           <Styled.Input
             ref={pwRef}
             type="password"
             placeholder="Password"
+            data-testid="password"
             onKeyDown={handleKeyDown}
             required
           />
-          <Styled.Button onClick={handleLogin}> Login! </Styled.Button>
+          <Styled.Button onClick={handleLogin} data-testid="loginButton">
+            Login!
+          </Styled.Button>
         </Styled.LoginForm>
       </Styled.ModalContent>
     </Styled.ModalBG>
