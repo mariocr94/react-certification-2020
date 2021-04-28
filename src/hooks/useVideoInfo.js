@@ -35,7 +35,7 @@ const useVideoInfo = (videoID) => {
   }, []);
 
   useEffect(() => {
-    handleSubmit(videoID);
+    if (videoID) handleSubmit(videoID);
   }, [videoID, handleSubmit]);
 
   return [videoTitle, videoDescription, thumb];

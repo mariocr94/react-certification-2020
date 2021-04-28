@@ -12,14 +12,15 @@ const useYoutubeApi = (query) => {
           type: 'video',
         },
       });
-      setVideos(response.data.items);
+      const videoIds = response.data.items.map((item) => item.id.videoId);
+      setVideos(videoIds);
     } catch (e) {
       console.log(e);
     }
   }, []);
 
   useEffect(() => {
-    handleSubmit(query);
+    if (query) handleSubmit(query);
   }, [query, handleSubmit]);
 
   return [videos];

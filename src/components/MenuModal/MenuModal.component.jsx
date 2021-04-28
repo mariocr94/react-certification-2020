@@ -36,8 +36,8 @@ const MenuModal = () => {
   };
 
   return (
-    <Styled.ModalBG ref={outRef} onClick={exit}>
-      <Styled.ModalContent>
+    <Styled.ModalBG ref={outRef} onClick={exit} data-testid="outside">
+      <Styled.ModalContent data-testid="inside">
         <Styled.LoginForm>
           <Styled.Section to="/">Home</Styled.Section>
           {isLogged && <Styled.Section to="/favourites"> Favourites </Styled.Section>}

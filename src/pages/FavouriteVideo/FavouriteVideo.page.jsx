@@ -11,7 +11,7 @@ const FavouritePage = () => {
 
   return (
     <section className="favouritevideopage">
-      <Styled.Container>
+      <Styled.Container data-testid="favvideopage">
         <Video />
         <SideVideos videoIds={favourites} linkTo="/favourites/" />
       </Styled.Container>

@@ -5,6 +5,13 @@ import { Router, Route } from 'react-router-dom';
 import Video from './index';
 import { AppContext } from '../../context/AppProvider';
 
+jest.mock('../../hooks/useVideoInfo', () => ({
+  __esModule: true,
+  default: (videoId) => {
+    if (videoId) return [`title ${videoId}`, 'description', 'thumb'];
+    return ['', '', ''];
+  },
+}));
 describe(' Video Component', () => {
   it(' should render Video Component with no fav button', () => {
     const history = createMemoryHistory();
@@ -99,6 +106,6 @@ describe(' Video Component', () => {
       </AppContext.Provider>
     );
     expect(screen.getByTestId('VideoInfo')).toBeInTheDocument();
-    // expect(screen.queryByText(/Daft Punk/i)).toBeInTheDocument();
+    expect(screen.queryByText(/sOS9aOIXPEk/)).toBeInTheDocument();
   });
 });

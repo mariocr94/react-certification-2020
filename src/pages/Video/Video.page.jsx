@@ -18,7 +18,7 @@ const VideoPage = () => {
 
   return (
     <section className="videopage">
-      <Styled.Container>
+      <Styled.Container data-testid="videopage">
         <Video />
         {isLoading ? <p>Loading...</p> : getVideos()}
       </Styled.Container>

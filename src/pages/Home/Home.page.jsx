@@ -8,8 +8,6 @@ function HomePage() {
   const { state } = useAppContext();
   const { search } = state;
   const [searchVideos] = useYoutubeApi(search);
-
-  const searchIds = searchVideos?.map((video) => video.id.videoId);
   const sectionRef = useRef(null);
 
   return (
@@ -17,7 +15,7 @@ function HomePage() {
       {search === '' ? (
         <h2>Look for something!</h2>
       ) : (
-        <VideoCards videoIds={searchIds} linkTo="/" />
+        <VideoCards videoIds={searchVideos} linkTo="/" />
       )}
     </section>
   );

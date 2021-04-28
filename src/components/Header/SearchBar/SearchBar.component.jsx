@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { SearchBox, Input } from '../styled';
-import { useAppContext } from '../../../context/AppProvider';
+import { AppContext } from '../../../context/AppProvider';
 
 const SearchBar = () => {
   const searchInput = useRef(null);
 
-  const { dispatch } = useAppContext();
+  const { dispatch } = useContext(AppContext);
 
   const handleFocus = () => {
     searchInput.current.select();

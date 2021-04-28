@@ -24,6 +24,9 @@ function Layout() {
       <ThemeProvider theme={currentTheme}>
         <GlobalStyles />
         <Header />
+        {background && <Route path="/logout" component={LogoutModal} />}
+        {background && <Route path="/login" component={LoginModal} />}
+        {background && <Route path="/menu" component={MenuModal} />}
         <Switch location={background || location}>
           <Route exact path="/">
             <HomePage />
@@ -41,9 +44,6 @@ function Layout() {
             <VideoPage />
           </Route>
         </Switch>
-        {background && <Route path="/logout" component={LogoutModal} />}
-        {background && <Route path="/login" component={LoginModal} />}
-        {background && <Route path="/menu" component={MenuModal} />}
       </ThemeProvider>
     </main>
   );
