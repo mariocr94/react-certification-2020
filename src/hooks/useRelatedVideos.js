@@ -29,7 +29,7 @@ const useRelatedVideos = (query) => {
     handleSubmit(query);
   }, [query, handleSubmit]);
 
-  return [isLoading, videos];
+  return { isLoading, videos };
 };
 
 export default useRelatedVideos;

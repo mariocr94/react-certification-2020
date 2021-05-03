@@ -23,7 +23,7 @@ const useYoutubeApi = (query) => {
     if (query) handleSubmit(query);
   }, [query, handleSubmit]);
 
-  return [videos];
+  return videos;
 };
 
 export default useYoutubeApi;

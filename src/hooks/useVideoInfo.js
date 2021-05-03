@@ -38,7 +38,7 @@ const useVideoInfo = (videoID) => {
     if (videoID) handleSubmit(videoID);
   }, [videoID, handleSubmit]);
 
-  return [videoTitle, videoDescription, thumb];
+  return { videoTitle, videoDescription, thumb };
 };
 
 export default useVideoInfo;

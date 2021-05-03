@@ -24,10 +24,10 @@ const SearchBar = () => {
   return (
     <SearchBox onClick={handleFocus} data-testid="Searchbox">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Search_Icon.svg"
+        src="./search.png"
         alt=""
-        width="25"
-        height="25"
+        width="25px"
+        height="25px"
         style={{ verticalAlign: 'middle', margin: 'auto 0' }}
       />
       <Input

@@ -9,7 +9,7 @@ import useRelatedVideos from '../../hooks/useRelatedVideos';
 const VideoPage = () => {
   const params = useParams();
   const { videoId } = params;
-  const [isLoading, videos] = useRelatedVideos(videoId);
+  const { isLoading, videos } = useRelatedVideos(videoId);
 
   const getVideos = () => {
     const videoIds = videos?.map((video) => video.id.videoId);

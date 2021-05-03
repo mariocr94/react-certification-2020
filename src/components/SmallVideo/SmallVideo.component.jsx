@@ -4,16 +4,16 @@ import Styled from './styled';
 import useVideoInfo from '../../hooks/useVideoInfo';
 
 const SmallVideo = ({ videoId }) => {
-  const [title, description, thumb] = useVideoInfo(videoId);
+  const { videoTitle, videoDescription, thumb } = useVideoInfo(videoId);
 
-  if (title === '') return null;
+  if (videoTitle === '') return null;
 
   return (
     <Styled.Card data-testid="SmallVideocard">
       <img src={thumb} alt="thumbnail" height="100%" width="30%" />
       <Styled.Content>
-        <Styled.Title>{title}</Styled.Title>
-        <Styled.Desc>{description}</Styled.Desc>
+        <Styled.Title>{videoTitle}</Styled.Title>
+        <Styled.Desc>{videoDescription}</Styled.Desc>
       </Styled.Content>
     </Styled.Card>
   );

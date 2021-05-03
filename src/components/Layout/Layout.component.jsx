@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import Header from '../Header';
 import './Layout.styles.css';
 import { AppContext } from '../../context/AppProvider';
 import GlobalStyles from '../../global';
+import ProtectedRoute from '../ProtectedRoute';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import FavouritesPage from '../../pages/Favourite';
@@ -15,7 +16,7 @@ import LogoutModal from '../LogoutModal';
 
 function Layout() {
   const { state } = useContext(AppContext);
-  const { currentTheme, isLogged } = state;
+  const { currentTheme } = state;
   const location = useLocation();
   const background = location.state && location.state.background;
 
@@ -31,14 +32,11 @@ function Layout() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route
+          <ProtectedRoute exact path="/favourites" component={FavouritesPage} />
+          <ProtectedRoute
             exact
-            path="/favourites"
-            render={() => (isLogged ? <FavouritesPage /> : <Redirect to="/" />)}
-          />
-          <Route
             path="/favourites/:videoId"
-            render={() => (isLogged ? <FavouriteVideoPage /> : <Redirect to="/" />)}
+            component={FavouriteVideoPage}
           />
           <Route path="/:videoId">
             <VideoPage />

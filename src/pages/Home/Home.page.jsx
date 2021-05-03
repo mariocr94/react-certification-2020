@@ -7,7 +7,7 @@ import useYoutubeApi from '../../hooks/useYoutubeApi';
 function HomePage() {
   const { state } = useAppContext();
   const { search } = state;
-  const [searchVideos] = useYoutubeApi(search);
+  const searchVideos = useYoutubeApi(search);
   const sectionRef = useRef(null);
 
   return (
