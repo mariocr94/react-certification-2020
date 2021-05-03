@@ -1,0 +1,9 @@
+.favouritepage {
+  text-align: center;
+  width: 100%;
+}
+
+.favouritepage h1 {
+  font-size: 3rem;
+  letter-spacing: -2px;
+}

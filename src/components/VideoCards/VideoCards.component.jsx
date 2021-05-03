@@ -1,32 +1,24 @@
 import React from 'react';
-import {Cards} from './styled';
-import VideoCard from './VideoCard';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import useYoutubeApi from '../../hooks/useYoutubeApi';
+import VideoCard from '../VideoCard';
+import Styled from './styled';
 
-const VideoCards = ({videoSearch}) => {
-    const [searchVideos] = useYoutubeApi(videoSearch);
+const VideoCards = ({ videoIds, linkTo }) => {
+  const videoArray = videoIds?.map((videoId) => (
+    <Link key={videoId} to={`${linkTo}${videoId}`}>
+      <VideoCard videoId={videoId} />
+    </Link>
+  ));
 
+  return (
+    <Styled.CardsContainer data-testid="Videocards">{videoArray}</Styled.CardsContainer>
+  );
+};
 
-    const cardsArray = searchVideos?.map((video) =>
-                                <VideoCard 
-                                key={video.etag} 
-                                id={video.id.videoId}
-                                title={video.snippet.title}
-                                description={video.snippet.description}
-                                thumbnail={video.snippet.thumbnails}
-                                data-testid="Videocard"/>
-                            );
-
-    return (
-            <Cards data-testid="Videocards">
-                {cardsArray}                
-            </Cards>
-    );
-}
-
-VideoCards.propTypes ={
-    videoSearch: PropTypes.string.isRequired
-}
+VideoCards.prototype = {
+  videoIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  linkTo: PropTypes.string.isRequired,
+};
 
 export default VideoCards;

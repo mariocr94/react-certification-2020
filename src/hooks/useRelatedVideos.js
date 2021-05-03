@@ -5,13 +5,13 @@ const useRelatedVideos = (query) => {
   const [isLoading, setIsLoading] = useState(false);
   const [videos, setVideos] = useState([]);
 
-  const handleSubmit = useCallback(async (query) => {
+  const handleSubmit = useCallback(async (search) => {
     setIsLoading(true);
 
     try {
       const response = await youtube.get('/search', {
         params: {
-          relatedToVideoId: query,
+          relatedToVideoId: search,
           type: 'video',
           part: 'snippet',
         },
@@ -29,7 +29,7 @@ const useRelatedVideos = (query) => {
     handleSubmit(query);
   }, [query, handleSubmit]);
 
-  return [isLoading, videos];
+  return { isLoading, videos };
 };
 
 export default useRelatedVideos;

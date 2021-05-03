@@ -1,32 +1,16 @@
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 import AppProvider from '../../context/AppProvider';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import AuthProvider from '../../providers/Auth';
-import HomePage from '../../pages/Home';
-import VideoPage from '../../pages/Video';
 import Layout from '../Layout';
 
 function App() {
-  
-    return (
-      <AppProvider >
-        <BrowserRouter>
-          <AuthProvider>
-            <Layout>
-              <Switch>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
-                <Route path="/:videoId">
-                  <VideoPage />
-                </Route>
-              </Switch>
-            </Layout>
-          </AuthProvider>
-        </BrowserRouter>
-      </AppProvider>
-    );
-  }
-  
-  export default App;
-  
+  return (
+    <AppProvider>
+      <HashRouter>
+        <Layout data-testid="AppLayout" />
+      </HashRouter>
+    </AppProvider>
+  );
+}
+
+export default App;

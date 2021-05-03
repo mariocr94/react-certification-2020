@@ -20,9 +20,9 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    color: ${props => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
     text-rendering: optimizeLegibility;
-    background-color: ${props => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.backgroundColor};
     background-size: 400% 400%;
     background-position: var(--bg-position);
     transition: background-position 2s ease;
@@ -39,13 +39,12 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     font-weight: bold;
-    color: ${props => props.theme.primaryColor};
+    color: ${(props) => props.theme.primaryColor};
   }
 
   a:active {
-    color: ${props => props.theme.primaryColor};
+    color: ${(props) => props.theme.primaryColor};
   }
 `;
 
 export default GlobalStyles;
-
